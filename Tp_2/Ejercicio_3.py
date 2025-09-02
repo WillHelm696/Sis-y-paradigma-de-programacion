@@ -15,7 +15,9 @@ if len(A)==len(B):
         C.append(B[i]+j)
         if not (j in B) :
             SubA.append(j)
-    print(C)
-    print(SubA)
+print("Lista C conteniendo la suma de A + B")    
+print(C)
+print("Elementos que esta en A y No en B")
+print(SubA)
 
     
