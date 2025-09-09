@@ -6,10 +6,10 @@ número y crear una lista con los elementos de la lista original que sean menore
 Imprimir esta nueva lista, iterando por ella
 """
 print("Crear Nueva Lista Terminar con 0")
-nuemeros=[]
+numeros=[]
 x=int(input("Numero: "))
 while x !=0:
-    nuemeros.append(x)
+    numeros.append(x)
     x=int(input("Numero: "))
 
 print("Sublista con numeos inferior a X termine con 0")

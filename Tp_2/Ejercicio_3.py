@@ -8,6 +8,7 @@ print("Lista A y B")
 A=[2,4,5,6,7,8]
 B=[0,8,1,6,4,3]
 print("A:",A," y B:",B)
+
 if len(A)==len(B):
     C=[]
     SubA=[]
@@ -15,9 +16,10 @@ if len(A)==len(B):
         C.append(B[i]+j)
         if not (j in B) :
             SubA.append(j)
-print("Lista C conteniendo la suma de A + B")    
-print(C)
-print("Elementos que esta en A y No en B")
-print(SubA)
-
+    print("Lista C conteniendo la suma de A + B")    
+    print(C)
+    print("Elementos que esta en A y No en B")
+    print(SubA)
+else:
+    print("La lista son impares")
     

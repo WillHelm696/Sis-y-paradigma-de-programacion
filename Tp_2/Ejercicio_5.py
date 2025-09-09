@@ -10,12 +10,28 @@ realizar las siguientes operaciones:
     . Dada una materia, mostrar la cantidad de alumnos que la cursan.
 """
 
-alumnos=[("Manuel Juarez", 19823451, "Matematica"), ("Silvana Paredes", 22709128,
-"Programacion"), ("Rosa Ortiz", 15123978, "Redes"), ("Luciana Hernandez",
-38981374, "Programacion")]
+"""alumnos=[("Manuel Juarez", 19823451, "Matematica"), 
+        ("Silvana Paredes", 22709128,"Programacion"), 
+        ("Rosa Ortiz", 15123978, "Redes"), 
+        ("Luciana Hernandez",38981374, "Programacion")]
+"""
+alumnos=[]
+print("Cargar alumnos de la itu 0 para terminar")
+
+nombre=input("Nombre: ")
+dni=int(input("Dni: "))
+materia=input("Materia: ")
+while nombre != "0" or dni != "0" or materia != "0":
+    alumnos.append((nombre, dni, materia))
+    print(alumnos)
+    nombre=input("Nombre: ")
+    dni=int(input("Dni: "))
+    materia=input("Materia: ")
 
 print("Base de datos de la ITU")
+
 cursantes=[]
+
 while True :
     print("1-Agregar alumnos a la lista.")
     print("2-Dado el DNI de un alumno, ver las materias que cursa.")
@@ -27,7 +43,7 @@ while True :
             nombre=input("Nombre: ")
             dni=int(input("Dni: "))
             materia=input("Materia: ")
-            alumnos.append((tuple[nombre, dni, materia]))
+            alumnos.append((nombre, dni, materia))
             print()
         case 2:
             dni=int(input("Dni del alumno"))
