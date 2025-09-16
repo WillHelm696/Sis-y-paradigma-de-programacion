@@ -6,10 +6,10 @@ que el ejercicio se resuelva utilizando algoritmia propia de algún método de
 ordenamiento existente.
 """
 
-"""Nombres=["Michael Scott","Dwight Schrute","Jim Halpert",
+Nombres=["Michael Scott","Dwight Schrute","Jim Halpert",
          "Pam Beesley","Ryan Howard","Karen Filippelli",
-         "Meredith Palmer","Creed Braton","Erin Hannon","Toby Flenderson"]"""
-Nombres = []
+         "Meredith Palmer","Creed Braton","Erin Hannon","Toby Flenderson"]
+#Nombres = []
 
 print("Ingrese Los Nombres 0 Para Teminar")
 
@@ -20,8 +20,8 @@ while x != "0":
 
 print(Nombres)
 
-for i in range(1,len(Nombres)-1):
-    for j in range(0,len(Nombres)-i):
+for i in range(len(Nombres)-1):
+    for j in range(len(Nombres)-1-i):
 
         #print(Nombres[j],"Compara Con", Nombres[j+1] )
 
@@ -32,4 +32,3 @@ for i in range(1,len(Nombres)-1):
  
 print("Lista de Nombres Ordebados")
 print(Nombres)
-print(sorted(Nombres))  

@@ -16,29 +16,24 @@ realizar las siguientes operaciones:
         ("Luciana Hernandez",38981374, "Programacion")]
 """
 alumnos=[]
-print("Cargar alumnos de la itu 0 para terminar")
-
-nombre=input("Nombre: ")
-dni=int(input("Dni: "))
-materia=input("Materia: ")
-while nombre != "0" or dni != "0" or materia != "0":
-    alumnos.append((nombre, dni, materia))
-    print(alumnos)
-    nombre=input("Nombre: ")
-    dni=int(input("Dni: "))
-    materia=input("Materia: ")
 
 print("Base de datos de la ITU")
 
 cursantes=[]
 
 while True :
+    print("==================================================================================")
     print("1-Agregar alumnos a la lista.")
     print("2-Dado el DNI de un alumno, ver las materias que cursa.")
     print("3-Dada una materia, mostrar la cantidad de alumnos que la cursan.")
-    print("precione cualquier tecla para Salir")
-    opc=input("opcion :")
-    match (opc.int()):
+    print("4-Mostrar lista")
+    print("precione 0 tecla para Salir")
+    try:
+        opc=int(input("opcion :"))
+    except:
+        print("Selecione Una Opcion")
+    print("==================================================================================")
+    match (opc):
         case 1:
             nombre=input("Nombre: ")
             dni=int(input("Dni: "))
@@ -58,5 +53,9 @@ while True :
                 if estudiante[2]==materia:
                     cursantes.append(estudiante[0])
             print(cursantes)
+        case 4:
+            for parcial in alumnos:
+                print("Nombre:",parcial[0],"- Dni:",parcial[1],"- Materia:",parcial[2])
         case _:
             break
+

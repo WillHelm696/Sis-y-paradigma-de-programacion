@@ -4,11 +4,25 @@ carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además 
 ello, la función debe poder indicar la cantidad de palabras que hay en la frase.
 """
 
-def se_encuentra(frase,caracter):
-    cadena=list(frase)
+def frase_cadena(frase):
+    cadena = []
+    palabra = ""
+    for caracter in frase:
+        if caracter == " ":
+            if palabra:
+                cadena.append(palabra)
+                palabra = ""
+        else:
+            palabra += caracter
+    if palabra:
+        cadena.append(palabra)
+    return cadena
 
-    if caracter in cadena :
-        return True
+def se_encuentra(frase,caracter):
+    cadena=frase_cadena(frase)
+    for palabra in cadena:
+        if caracter in palabra :
+            return True
     return False
 
 print("Ingrese Una frase")

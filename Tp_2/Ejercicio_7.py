@@ -21,13 +21,14 @@ ciudades={
 "Osaka": ("Japón", 19013000)}
 
 while True:
-    
+    print("==================================================================================")
     print("1: Agregar Ciudades")
     print("2: Eliminar Ciudades")
     print("3: Numero de habitantes de un pais")
     print("4: Porcentaje de habitntes en una coudad de acuerdo a la totaliad")
+    print("5: Mostrar Ciudades")
     print("0 para salir")
-    
+    print("==================================================================================")
     try:
         opc=int(input(">"))
         match (opc):
@@ -65,7 +66,10 @@ while True:
                 print(total,ciudades[selecionado][1])
 
                 print ("El porcentaaje de la ciudad es",ciudades[selecionado][1]/total)
-            case 0:
+            case 5:
+                for clave, valor in ciudades.items():
+                    print(clave,":",valor[0],"-",valor[1])
+            case _:
                 break
     except:
             print("Selecione una opcion")

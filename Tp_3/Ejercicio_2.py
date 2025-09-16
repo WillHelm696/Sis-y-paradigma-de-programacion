@@ -26,5 +26,5 @@ print("INGRESE UN NUMERO")
 
 n = int(input(">"))
 
-print("EL NUMERO ES PERFECTO")
+print("EL NUMERO ES PERFECTO ?")
 print(numero_perfecto(n))

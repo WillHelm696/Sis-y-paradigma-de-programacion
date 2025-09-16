@@ -14,7 +14,13 @@ def lista_pares(numeros):
     
     return(lista_pares)
 
-numeros=[10,23,56,32,56,789,3423,12,23]
+print("Ingrese una serie de numeros termine con 0")
+numero=int(input(">"))
+colecion=[]
+while numero != 0:
+    colecion.append(numero)
+    numero=int(input(">"))
+    
 
-print("La sublista de valores pares de",numeros,"es")
-print(lista_pares(numeros))
+print("La sublista de valores pares de",numero,"es")
+print(lista_pares(colecion))
