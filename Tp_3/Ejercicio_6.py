@@ -14,36 +14,43 @@ empleado.
 """
 def empleado():
     nombre=input("Nombre del Empeado:")
-    turno=input("ingrese turno (Diurno[D]/Nocturno[N])")
-    horas=int(input("horas trabajados:"))
-    dia=input("Dia (Festivo[F]/Laborable[L])")
+    turno=input("Ingrese turno Diurno(D)/Nocturno(N):")
+    horas=int(input("Horas trabajados:"))
+    dia=input("Tipo de dia Festivo(F)/Laborable(L):")
     return {"nombre":nombre,"turno":turno,"horas":horas,"dia":dia}
 
 def presupuesto(empleado):
+    
     sueldo=0
-
-    if empleado[horas]<0:
-        if empleado[turno] == 'D':
-            sueldo = empleado[horas]*350
-            if empleado[dia] == "F":
-                sueldo+=350*0.1
-        elif empleado[turno] == 'N':
-            sueldo = empleado[horas]*400
-            if empleado[dia] == "L" :
+    if empleado["horas"]>0:
+        if empleado["turno"].lower() == 'd':
+            sueldo = 350
+            if empleado["dia"].lower() == "f":
+                sueldo+=350*0.10
+        elif empleado["turno"].lower() == 'n':
+            sueldo = 400
+            if empleado["dia"].lower() == "l" :
                 sueldo+=350*0.15
+        sueldo = empleado["horas"]*sueldo
     else:
         print("Horas semanales No valido")
     empleado["sueldo"]=sueldo
     
-def mostrar(emepleado):
-    print(f" {emepleado["nombre"]} : {empleado["sueldo"]}")
+def mostrar(empleado):
+    print(f" {empleado["nombre"]} : {empleado["sueldo"]}")
+
+n = int(input("¿Cuántos empleados deseas registrar? (mínimo 2): "))
+if n < 2:
+    print("Debes ingresar al menos 2 empleados.")
 
 trabajadores=[]
-print("Ingresar Empleados")
-trabajadores.append(empleado())
+for i in range(n):
+    print()
+    print("Empleado ",i+1)
+    trabajadores.append(empleado())
+print()
+
 print("Sueldo de los empleados")
-
-for sujeto in trabajadores:
-    presupuesto(sujeto)
-    mostrar(sujeto)
-
+for emp in trabajadores:
+    presupuesto(emp)
+    mostrar(emp)

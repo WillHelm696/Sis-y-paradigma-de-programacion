@@ -19,3 +19,18 @@ Una vez diseñado el modulo, desarrolle un programa que, utilizando el modulo
 anterior, haga uso de todas la funciones con los parámetros ingresados por
 teclado
 """
+
+# main.py
+import operaciones
+
+try:
+    x = input("Ingrese el primer número: ")
+    y = input("Ingrese el segundo número: ")
+
+    print(f"\nSuma: {operaciones.suma(x, y)}")
+    print(f"Resta: {operaciones.resta(x, y)}")
+    print(f"Producto: {operaciones.producto(x, y)}")
+    print(f"División: {operaciones.division(x, y)}")
+
+except Exception as e:
+    print(f"Ocurrió un error inesperado: {e}")
