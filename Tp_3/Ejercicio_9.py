@@ -20,3 +20,16 @@ al menos 1 carácter no alfanumérico
  Contraseña válida, retorna True
  Contraseña no válida, retorna el mensaje: “La contraseña elegida no es segura”
 """
+import seguridad
+
+print("Usuario:")
+user=inpunt(":")
+
+while validaUsuario(user)
+    user=inpunt(":")
+
+print("Contraseña")
+passwd=input (":")
+while validaClave
+    passwd=input (":")
+
