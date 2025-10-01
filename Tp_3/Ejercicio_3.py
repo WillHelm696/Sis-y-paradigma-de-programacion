@@ -30,5 +30,5 @@ frase=input(">")
 print("Ingrese un caracter")
 caracter=input(">")
 
-print("El carracter esta dentro de la frase")
+print("El carracter esta dentro de la frase ?")
 print(se_encuentra(frase.lower(),caracter.lower()))

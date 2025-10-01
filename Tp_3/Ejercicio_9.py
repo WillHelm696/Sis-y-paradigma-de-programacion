@@ -5,31 +5,30 @@ módulo llamado seguridad. Dichas funciones deben realizar lo siguiente:
 
 validaUsuario:
 
- El nombre de usuario debe contener un mínimo de 6 caracteres y un
-máximo de 12.
- El nombre de usuario debe ser alfanumérico. Si no lo cumple indicar el
-mensaje: “El nombre de usuario puede contener solo letras y números”
- Nombre de usuario válido, retorna True
+    El nombre de usuario debe contener un mínimo de 6 caracteres y un máximo de 12.
+    El nombre de usuario debe ser alfanumérico. Si no lo cumple indicar el
+        mensaje: “El nombre de usuario puede contener solo letras y números”
+    Nombre de usuario válido, retorna True
 
 validaClave:
 
- La contraseña debe contener un mínimo de 8 caracteres
- Una contraseña debe contener letras minúsculas, mayúsculas, números y
-al menos 1 carácter no alfanumérico
- La contraseña no puede contener espacios en blanco
- Contraseña válida, retorna True
- Contraseña no válida, retorna el mensaje: “La contraseña elegida no es segura”
+    La contraseña debe contener un mínimo de 8 caracteres
+    Una contraseña debe contener letras minúsculas, mayúsculas, números y
+        al menos 1 carácter no alfanumérico
+    La contraseña no puede contener espacios en blanco
+    Contraseña válida, retorna True
+    Contraseña no válida, retorna el mensaje: “La contraseña elegida no es segura”
 """
-import seguridad
-
+#from seguridad import *
+import seguridad as seg
 print("Usuario:")
-user=inpunt(":")
-
-while validaUsuario(user)
-    user=inpunt(":")
+user=input(":")
+while not seg.validaUsuario(user):
+    user=input(":")
 
 print("Contraseña")
-passwd=input (":")
-while validaClave
+passwd=input(":")
+while not seg.validaClave(passwd):
     passwd=input (":")
+    
 

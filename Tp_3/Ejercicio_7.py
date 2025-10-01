@@ -13,7 +13,6 @@ realizar las siguientes operaciones:
     Dada una materia, mostrar la cantidad de alumnos que la cursan.
 """
 
-
 def agregar_alumno(lista):
     nombre = input("Ingrese el nombre del alumno: ")
     try:

@@ -12,14 +12,14 @@ son correctos llamar a otra función que realice el cálculo del sueldo a cobrar
 ese día. Mostrar por pantalla los datos ingresados y el sueldo calculado para cada
 empleado.
 """
-def empleado():
-    nombre=input("Nombre del Empeado:")
-    turno=input("Ingrese turno Diurno(D)/Nocturno(N):")
-    horas=int(input("Horas trabajados:"))
-    dia=input("Tipo de dia Festivo(F)/Laborable(L):")
+def ingresar_empleado():
+    nombre=input(" Nombre del Empeado:")
+    turno=input(" Ingrese turno Diurno(D)/Nocturno(N):")
+    horas=int(input(" Horas trabajados:"))
+    dia=input(" Tipo de dia Festivo(F)/Laborable(L):")
     return {"nombre":nombre,"turno":turno,"horas":horas,"dia":dia}
 
-def presupuesto(empleado):
+def calcular_presupuesto(empleado):
     
     sueldo=0
     if empleado["horas"]>0:
@@ -33,24 +33,28 @@ def presupuesto(empleado):
                 sueldo+=350*0.15
         sueldo = empleado["horas"]*sueldo
     else:
-        print("Horas semanales No valido")
+        print("Las Horas No son valido")
     empleado["sueldo"]=sueldo
     
 def mostrar(empleado):
     print(f" {empleado["nombre"]} : {empleado["sueldo"]}")
 
-n = int(input("¿Cuántos empleados deseas registrar? (mínimo 2): "))
-if n < 2:
-    print("Debes ingresar al menos 2 empleados.")
+while True:
+    n = int(input("¿Cuántos empleados deseas registrar? (mínimo 2): "))
+    if n < 2:
+        print("Debes ingresar al menos 2 empleados.")
+    else:
+        break
 
-trabajadores=[]
+empleados=[]
+
 for i in range(n):
     print()
-    print("Empleado ",i+1)
-    trabajadores.append(empleado())
+    print("Empleado ",i+1,":")
+    empleados.append(ingresar_empleado())
 print()
 
 print("Sueldo de los empleados")
-for emp in trabajadores:
-    presupuesto(emp)
+for emp in empleados:
+    calcular_presupuesto(emp)
     mostrar(emp)

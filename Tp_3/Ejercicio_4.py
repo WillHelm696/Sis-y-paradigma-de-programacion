@@ -22,5 +22,5 @@ while numero != 0:
     numero=int(input(">"))
     
 
-print("La sublista de valores pares de",numero,"es")
+print("La sublista de valores pares de",colecion,"es")
 print(lista_pares(colecion))
