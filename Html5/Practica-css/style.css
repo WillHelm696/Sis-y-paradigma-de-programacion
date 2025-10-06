@@ -1,0 +1,61 @@
+#titulo {
+    color: tomato;
+}
+
+p.especial{
+    color: mediumseagreen;
+}
+
+p.texto{
+    color: slateblue;
+}
+
+div.vim p {
+    color: aquamarine;
+}
+
+div.vim h2 {
+    color: brown;
+}
+
+div.nano h2, div.nano h3 {
+ color: rgb(255, 0, 157);
+}
+
+*{
+    font-size: 24px;
+    color: black;
+}
+
+/* .color{
+    color: #ff0000;
+} */
+
+.color{
+    /* border: 5px rebeccapurple dotted; */
+    /*dotted,dashed,solid,double,groove,ridge,inset,outset,none,hidden  */
+
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    border-width: 5px;/*Formatos: cm,mm,in,px,pt,pc,em,rem */
+}
+
+#fondo{
+    height: 200px;
+    color: white;
+    background-color: rgba(0, 50, 0, 0.5); 
+    opacity: 0.95; /*Opacidad de fondo*/
+    background-image: url('1347727.png');
+    background-size: 400px 400px ; 
+    background-repeat:repeat-x ;
+    background-position: right top;
+}
+.margen{
+    background-color: chocolate;
+    margin: 15px 20px 25px 30px;
+    padding: 30px 25px 20px 15px;
+    border: solid 1px black;
+    border-radius: 30px;
+    
+}

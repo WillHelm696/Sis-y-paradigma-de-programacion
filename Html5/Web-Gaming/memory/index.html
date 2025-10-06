@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Juego de Memoria — Cartas volteadas</title>
+  <style>
+    :root{
+      --bg:#091826;
+      --card:#0f2a3a;
+      --accent:#7c5cff;
+      --accent-2:#22c1c3;
+      --text:#e6eef8;
+      --success:#7ee3a1;
+      --danger:#ff7b7b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--text);background:linear-gradient(180deg,#031226 0%, #061626 60%);padding:20px}
+    .container{width:100%;max-width:980px}
+    .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .title{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .controls{display:flex;gap:8px;align-items:center}
+    button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#021017}
+    .board{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .stats{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+    .stat{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:14px}
+
+    /* grid */
+    .grid{display:grid;gap:12px}
+    /* responsive columns handled via JS by cardCount */
+
+    /* card */
+    .card{position:relative;width:100%;padding-top:100%;border-radius:10px;perspective:1000px;cursor:pointer}
+    .inner{position:absolute;inset:0;border-radius:10px;transition:transform .45s;transform-style:preserve-3d}
+    .card.flipped .inner{transform:rotateY(180deg)}
+    .face{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700}
+    .front{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.03);}
+    .back{transform:rotateY(180deg);background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#021017}
+    .hidden{visibility:hidden;opacity:0;transform:scale(.92);transition:all .3s}
+
+    .message{margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:15px}
+
+    .footer{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.6)}
+
+    @media (max-width:520px){.title .text{display:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="title">
+        <div class="logo">M</div>
+        <div>
+          <div style="font-weight:700">Memory — Cartas volteadas</div>
+          <div style="font-size:13px;opacity:0.8">Adivina las parejas. La partida se reinicia al actualizar la página.</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="shuffleBtn">Mezclar y reiniciar</button>
+        <button id="easyBtn">Fácil</button>
+        <button id="normalBtn" class="primary">Normal</button>
+        <button id="hardBtn">Difícil</button>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="stats">
+        <div class="stat">Movimientos: <span id="moves">0</span></div>
+        <div class="stat">Aciertos: <span id="matches">0</span></div>
+        <div class="stat">Tiempo: <span id="timer">00:00</span></div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+
+      <div id="msg" class="message" style="display:none"></div>
+    </div>
+
+    <div class="footer">Consejo: pulsa o toca una carta para voltearla. Cuando se emparejen, desaparecerán. Recarga la página para reiniciar también.</div>
+  </div>
+
+  <script>
+    // Juego de memoria - single file
+    (function(){
+      const gridEl = document.getElementById('grid');
+      const movesEl = document.getElementById('moves');
+      const matchesEl = document.getElementById('matches');
+      const timerEl = document.getElementById('timer');
+      const msgEl = document.getElementById('msg');
+
+      const shuffleBtn = document.getElementById('shuffleBtn');
+      const easyBtn = document.getElementById('easyBtn');
+      const normalBtn = document.getElementById('normalBtn');
+      const hardBtn = document.getElementById('hardBtn');
+
+      // difficulty presets: number of pairs
+      const PRESETS = { easy:6, normal:10, hard:15 };
+      let pairs = PRESETS.normal;
+
+      let icons = [
+        '🍎','🍌','🍇','🍓','🍊','🍉','🍍','🥝','🍒','🥭','🍑','🍐','🍋','🥥','🥑','🍆','🥕','🌽','🌶️','🥔'
+      ];
+
+      let moves=0, matches=0, firstCard=null, secondCard=null, lock=false;
+      let timerInterval=null, seconds=0;
+
+      function formatTime(s){ const mm = String(Math.floor(s/60)).padStart(2,'0'); const ss = String(s%60).padStart(2,'0'); return mm+':'+ss; }
+
+      function startTimer(){ clearInterval(timerInterval); seconds=0; timerEl.textContent = '00:00'; timerInterval = setInterval(()=>{ seconds++; timerEl.textContent = formatTime(seconds); },1000); }
+      function stopTimer(){ clearInterval(timerInterval); }
+
+      function shuffleArray(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+      function buildDeck(){
+        const use = icons.slice(0); // copy
+        shuffleArray(use);
+        const selected = use.slice(0,pairs);
+        const deck = shuffleArray(selected.concat(selected)); // duplicate and shuffle
+        return deck;
+      }
+
+      function setGridColumns(){
+        // try to make grid close to square
+        const total = pairs*2;
+        let cols = Math.ceil(Math.sqrt(total));
+        // adjust for small values to nicer layouts
+        if(total<=8) cols = Math.min(4,total);
+        gridEl.style.gridTemplateColumns = 'repeat('+cols+', 1fr)';
+      }
+
+      function renderBoard(){
+        gridEl.innerHTML='';
+        const deck = buildDeck();
+        setGridColumns();
+        deck.forEach((symbol, idx)=>{
+          const card = document.createElement('div');
+          card.className='card';
+          card.setAttribute('data-symbol', symbol);
+          card.setAttribute('tabindex','0');
+          card.innerHTML = `
+            <div class="inner">
+              <div class="face front"></div>
+              <div class="face back">${symbol}</div>
+            </div>
+          `;
+          card.addEventListener('click', ()=>onCardClick(card));
+          card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); onCardClick(card);} });
+          gridEl.appendChild(card);
+        });
+      }
+
+      function onCardClick(card){
+        if(lock) return;
+        if(card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        if(moves===0 && matches===0 && !timerInterval) startTimer();
+
+        card.classList.add('flipped');
+        if(!firstCard){ firstCard = card; return; }
+        if(card===firstCard) return;
+        secondCard = card;
+        lock = true;
+        moves++; movesEl.textContent = moves;
+
+        const a = firstCard.getAttribute('data-symbol');
+        const b = secondCard.getAttribute('data-symbol');
+        if(a===b){
+          // match
+          setTimeout(()=>{
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            firstCard.classList.add('hidden');
+            secondCard.classList.add('hidden');
+            matches++; matchesEl.textContent = matches;
+            resetTurn();
+            checkWin();
+          },350);
+        } else {
+          // not match
+          setTimeout(()=>{
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+            resetTurn();
+          },700);
+        }
+      }
+
+      function resetTurn(){ firstCard=null; secondCard=null; lock=false; }
+
+      function checkWin(){
+        if(matches===pairs){
+          stopTimer();
+          showMessage('¡Ganaste! Movimientos: '+moves+', Tiempo: '+formatTime(seconds));
+        }
+      }
+
+      function showMessage(text){ msgEl.style.display='block'; msgEl.textContent = text; }
+      function hideMessage(){ msgEl.style.display='none'; msgEl.textContent=''; }
+
+      function initGame(){
+        moves=0; matches=0; firstCard=null; secondCard=null; lock=false; movesEl.textContent = moves; matchesEl.textContent = matches; hideMessage(); stopTimer();
+        renderBoard();
+      }
+
+      shuffleBtn.addEventListener('click', ()=>{ initGame(); });
+      easyBtn.addEventListener('click', ()=>{ pairs=PRESETS.easy; setActiveDifficulty('easy'); initGame(); });
+      normalBtn.addEventListener('click', ()=>{ pairs=PRESETS.normal; setActiveDifficulty('normal'); initGame(); });
+      hardBtn.addEventListener('click', ()=>{ pairs=PRESETS.hard; setActiveDifficulty('hard'); initGame(); });
+
+      function setActiveDifficulty(d){ easyBtn.classList.remove('primary'); normalBtn.classList.remove('primary'); hardBtn.classList.remove('primary');
+        if(d==='easy') easyBtn.classList.add('primary');
+        if(d==='normal') normalBtn.classList.add('primary');
+        if(d==='hard') hardBtn.classList.add('primary');
+      }
+
+      // keyboard navigation for arrows: move focus between cards
+      document.addEventListener('keydown', (e)=>{
+        const focused = document.activeElement;
+        if(!focused || !focused.classList || !focused.classList.contains('card')) return;
+        const all = Array.from(document.querySelectorAll('.card'));
+        const idx = all.indexOf(focused);
+        const cols = parseInt(getComputedStyle(gridEl).gridTemplateColumns.split(' ').length || 4);
+        if(e.key==='ArrowRight'){ const n = Math.min(all.length-1, idx+1); all[n].focus(); }
+        if(e.key==='ArrowLeft'){ const n = Math.max(0, idx-1); all[n].focus(); }
+        if(e.key==='ArrowDown'){ const n = Math.min(all.length-1, idx+cols); all[n].focus(); }
+        if(e.key==='ArrowUp'){ const n = Math.max(0, idx-cols); all[n].focus(); }
+      });
+
+      // initial setup
+      setActiveDifficulty('normal');
+      initGame();
+
+      // note: page refresh will naturally reset the game (no persistent state)
+    })();
+  </script>
+</body>
+</html>

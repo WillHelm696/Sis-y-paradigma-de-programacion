@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Laberinto Gaming — Aleatorio al cargar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">LG</div>
+        <div>
+          <div style="font-weight:700">Laberinto Gaming</div>
+          <div style="font-size:13px;opacity:0.8">Se genera aleatorio al cargar o al pulsar "Regenerar"</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="regenerate" class="primary">Regenerar</button>
+        <button id="shuffle-size">Cambiar tamaño</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="card" style="padding:10px;">
+        <canvas id="mazeCanvas" width="800" height="600"></canvas>
+      </div>
+
+      <div class="sidebar card">
+        <div>
+          <div class="stat">Celdas: <span id="cellCount">-</span></div>
+          <div class="stat">Tamaño de celda (px): <span id="cellSize">-</span></div>
+          <div class="stat">Generador: Backtracker recursivo</div>
+        </div>
+
+        <div>
+          <label for="colsRange">Columnas: <span id="colsVal">20</span></label>
+          <input id="colsRange" type="range" min="6" max="80" value="20">
+        </div>
+        <div>
+          <label for="rowsRange">Filas: <span id="rowsVal">15</span></label>
+          <input id="rowsRange" type="range" min="6" max="60" value="15">
+        </div>
+
+        <div>
+          <label>Controles</label>
+          <div class="hint">Usa las flechas del teclado (↑ ↓ ← →) o WASD para moverte por el laberinto.</div>
+        </div>
+
+        <div>
+          <button id="resetPlayer">Reset jugador</button>
+        </div>
+
+        <div class="footer">Inicio: marcador azul • Salida: marcador amarillo</div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+</html>

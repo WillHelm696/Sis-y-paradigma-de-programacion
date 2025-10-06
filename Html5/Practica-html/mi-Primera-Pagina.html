@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Mi primmera web</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+<body>
+    <!-- Tablas-->
+    <table style="width: 500PX;">
+        <thead>
+            <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hola beats</td>
+                <td>Gratis</td>
+            </tr>
+            <tr>
+                <td>Chanchito Feliz</td>
+                <td>$19.90</td>
+            </tr>
+            <tr>
+                <td>Chanchito Feliz muy feliz</td>
+                <td>$20.00</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td></td>
+            <td>Total: $49.802</td>
+        </tfoot>
+    </table>
+    <!-- Listas-->
+    <ul>
+        <!--ul LISTA No ordenada-->
+        <li>Elemento 1</li><!--Item de la lista-->
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+
+    <ol>
+        <!--ol LISTA ordenada-->
+        <li value="50">Elemento 1</li><!--Item de la lista-->
+        <li value="60">Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li value="0">
+            <ol>
+                <li style="list-style-type: lower-alpha;">Sub Elemento 3</li>
+                <li style="list-style-type: lower-alpha;">Sub Elemento 4</li>
+                <li >
+                <ol>
+                    <li style="list-style-type: lower-roman;">Sub Elemento 3</li>
+                    <li style="list-style-type: lower-roman;">Sub Elemento 4</li>
+                </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <!-- Formularios-->
+    <hr >
+    <form action="/formulario" method="post">
+        <label for="Nombre">Nombre</label>
+        <input value="chanchito" type="text" id="Nombre" name="nombre" placeholder="Aqui el nombre"/><br>
+        <label for="Apellido">Apellilo</label>
+        <input value="feliz" type="text" id="Apellido" name="apellido" placeholder="Aqui el apellido"/><br>
+        <label for="comentario">Comentario</label><br>
+        <textarea cols="50" rows="10" id="comentario" placeholder="ingrese comentario" name="comentario">Este es un valor por defecto</textarea >
+        <input type="submit"/><br>
+
+        <button type="submit" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTup1hRbs55l9JDLg-pxj4QGt0Jsq1DJSnLDoEQXO6WUD94WkrbOpe1h8Q&s=10" width="50"/><br>Enviar</button>
+        <button type="reset" >Reset</button>
+        <button type="button" >Button</button>
+    </form>
+
+    <h1>Mi primer heading</h1>
+    <h2>mi segundo heading</h2>
+    <h3>Mi tercer heading</h3>
+    <h4>Mi cuarto heading</h4>
+    <h5>mi quinto heading</h5>
+    <h6>CHANCHITO FELIZ</h6>
+    <p>CHANCHITO feliz esta muy feliz.</p>
+    <p>Chanchito triste esta muy triste</p>
+    <hr>
+    <h2>Vhanchito felipe</h2>
+    <p>
+        Texto <span style="color:brown"> (este texto es una prueba de span)</span> poco mas<br>
+        este texto es un a prueba de salto de line<br><br>
+        este textoes una prueva de doble salto de linea
+    </p>
+    <a href="https://www.google.com">Ir a googlr </a> <br><br>
+    <a target="_blank" href="https://www.google.com">Este link abrira una pestana nuevo</a> <br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTup1hRbs55l9JDLg-pxj4QGt0Jsq1DJSnLDoEQXO6WUD94WkrbOpe1h8Q&s=10" width="1000"/><br>
+    <!-- coMENTARIO de chanchit feliz
+     no aparece en el explorador-->
+</body>
+</html>
+<!---Quirks mode-->

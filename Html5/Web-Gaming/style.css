@@ -1,0 +1,8 @@
+    body{font-family:Inter,system-ui,Arial;margin:0;min-height:100vh;
+      display:flex;align-items:center;justify-content:center;background:#071226;color:#e6eef8}
+    .wrap{width:95%;max-width:1000px;padding:28px}
+    h1{margin:0 0 12px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .card{background:#0f1724;padding:16px;border-radius:12px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    a.btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,#7c5cff,#22c1c3);color:#021017;text-decoration:none;font-weight:700}
+    small{display:block;margin-top:8px;opacity:.8}
