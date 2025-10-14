@@ -1,61 +1,37 @@
-#titulo {
-    color: tomato;
-}
+/*{} Selector universal*/
+/* h1,h2,h3,h4,h5{} selector de etiqueta */
 
-p.especial{
-    color: mediumseagreen;
-}
 
-p.texto{
-    color: slateblue;
-}
+/*
+background: #911;     Para el color de fondo:     
+    Propiedades específicas:
+        background-color: Define un color de fondo para el elemento, que se aplica detrás del contenido y el relleno.
+        background-image: Establece una o más imágenes de fondo para un elemento, como un archivo JPG, PNG, SVG o un degradado.
+        background-repeat: Controla cómo se repite una imagen de fondo. Los valores incluyen repeat (por defecto), repeat-x, repeat-y, y no-repeat.
+        background-position: Ajusta la posición inicial de una imagen de fondo dentro del elemento. Acepta valores en píxeles, porcentajes o palabras clave como top, bottom, left, right, center.
+        background-size: Permite especificar un tamaño diferente a la imagen de fondo.
+        background-attachment: Determina si la imagen de fondo se desplaza con el contenido (scroll), se queda fija (fixed), o se repite con el elemento (local)
 
-div.vim p {
-    color: aquamarine;
-}
+color: #fff;                Para el color del texto:
 
-div.vim h2 {
-    color: brown;
-}
+border-color: ;             Para el color de bordes: Se utiliza la propiedad 
 
-div.nano h2, div.nano h3 {
- color: rgb(255, 0, 157);
-}
+margin: 10px;               espacio que se crea fuera de los bordes de un elemento, separándolo de otros elementos
+    Propiedades específicas:
+        margin: 10px; aplica un margen de \(10\) píxeles a los cuatro lados (arriba, abajo, izquierda, derecha).
+        margin: 10px 20px; aplica \(10\) píxeles arriba y abajo, y \(20\) píxeles a la izquierda y derecha.
+        margin: 10px 20px 30px 40px; aplica el margen en el siguiente orden: arriba ($10$px), derecha ($20$px), abajo ($30$px) e izquierda ($40$px)
 
-*{
-    font-size: 24px;
-    color: black;
-}
+padding: 10px;              espacio interno que se crea entre el contenido de un elemento y su borde
+    Propiedades específicas:
+        padding-top: Relleno superior. 
+        padding-right: Relleno derecho. 
+        padding-bottom: Relleno inferior. 
+        padding-left: Relleno izquierdo
+    Propiedad abreviada padding:
+        padding: 10px;: Aplica 10px de relleno a los cuatro lados. 
+        padding: 10px 20px;: 10px para arriba/abajo, 20px para izquierda/derecha. 
+        padding: 10px 20px 30px;: 10px arriba, 20px izquierda/derecha, 30px abajo. 
+        padding: 10px 20px 30px 40px;: 10px arriba, 20px derecha, 30px abajo, 40px izquierda. 
 
-/* .color{
-    color: #ff0000;
-} */
-
-.color{
-    /* border: 5px rebeccapurple dotted; */
-    /*dotted,dashed,solid,double,groove,ridge,inset,outset,none,hidden  */
-
-    border-style: solid;
-    border-color: blue;
-    border-radius: 10px;
-    border-width: 5px;/*Formatos: cm,mm,in,px,pt,pc,em,rem */
-}
-
-#fondo{
-    height: 200px;
-    color: white;
-    background-color: rgba(0, 50, 0, 0.5); 
-    opacity: 0.95; /*Opacidad de fondo*/
-    background-image: url('1347727.png');
-    background-size: 400px 400px ; 
-    background-repeat:repeat-x ;
-    background-position: right top;
-}
-.margen{
-    background-color: chocolate;
-    margin: 15px 20px 25px 30px;
-    padding: 30px 25px 20px 15px;
-    border: solid 1px black;
-    border-radius: 30px;
-    
-}
+*/

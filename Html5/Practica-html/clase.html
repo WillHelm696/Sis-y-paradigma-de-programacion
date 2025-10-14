@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo de nustra primera web</title>
+    <meta name="descripcion" content="web">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Etiquetas de texto-->
+    <h1>Titulo de nuetro documento: Etiqueta de tqxto</h1>
+    <p>
+        Para crear un párrafo en <strong>HTML</strong>, usa la etiqueta < p > (del inglés paragraph) 
+        abriendo con < p > y cerrando con < /p >. Todo el texto que escribas entre 
+        estas dos etiquetas se considerará un párrafo y el navegador lo mostrará 
+        como un bloque de texto separado. 
+    </p>
+    <h2>Subtitulo del articulo h2</h2>
+    <p>
+        <b>Etiqueta de apertura:</b> Comienza el párrafo con < p >. <br>
+        <b>Contenido:</b> Escribe el texto que quieres que aparezca en el párrafo. <br>
+        <b>Etiqueta de cierre:</b> Finaliza el párrafo con < /p >. <br>
+        <b>Separación: </b> Los párrafos creados de esta forma se muestran con un margen inferior y superior por defecto, separándose del texto circundante. <br>
+    </p>
+    <hr>
+    <p>La etiqueta < hr > permite ingresar lineas separadoras </p>
+    <h3>Etiqueta < pre ></h3>
+    <pre>Contenido preformateado       Conserva los espacios,
+            los saltos de línea y los tabuladores del texto original.
+    </pre>
+    <h3>Etiqueta < blockquote ></h3>
+    <blockquote>
+        La etiqueta < blockquote > en HTML se usa para representar una sección que ha 
+        sido citada de otra fuente, como un artículo o un blog. Generalmente, los 
+        navegadores muestran el texto con sangría para distinguirlo del contenido 
+        circundante, ya que es un elemento de bloque que crea un salto de línea antes 
+        y después. Se puede utilizar el atributo cite para especificar la URL de la 
+        fuente original de la cita
+    </blockquote>
+    <h3>Etiqueta < cite > </h3>
+    <cite>
+        La etiqueta <b>< cite ></b> en HTML se utiliza para identificar y definir el título 
+        de una obra creativa, como un libro, una película, una canción o una pintura. 
+        Esta etiqueta es semántica, lo que significa que proporciona información a los 
+        motores de búsqueda y otras tecnologías de asistencia, y generalmente hace que 
+        el texto aparezca en cursiva en el navegador. 
+    </cite><br>
+    <i>La etiqueta < i > permite cambiar el estilo de letra a otro</i>
+    <br>
+    <h2>Etiquetas de Enlases</h2>
+    <br>
+    <hr>    
+    <p>Etiqueta  < a > y sus atributos <br> 
+        href: Especifica la dirección del enlace. Puede ser una URL absoluta (ej. https://www.ejemplo.com) o relativa (ej. /contacto.html). <br>
+        <a href="">ir a google</a><br>
+        target: Define el destino donde se abrirá el enlace. Los valores comunes son _blank para abrir en una nueva pestaña, _self para abrir en el mismo marco, _parent para abrir en el marco padre, o _top para abrir en la ventana completa. <br>
+        <a href="imagens/img.jpg" target="_blank">Ir a imagen</a><br>
+        download: Indica que el recurso se debe descargar. Si se le asigna un valor, se usa como nombre de archivo para la descarga. <br>
+        
+        rel: Especifica la relación del enlace con el documento actual. Ejemplos comunes incluyen alternate, canonical, next o prev. <br>
+
+        ping: Especifica una lista de URLs que se notificarán cuando el usuario siga el enlace <br>
+        mailto: para correos electronico <br>
+        <a href="mailto:contacto@falconmaster.com" title="enviar correor a Carlos Arturo">enviar Correo</a>
+    </p>
+    <h2 >Etiquetas de listas </h2>
+    <p>La etiqueta < li > en HTML representa un elemento de lista que 
+        se usa dentro de las etiquetas contenedoras de listas, ya sean desordenadas (< ul >) o 
+        ordenadas (< ol >). Los "tipos" se refieren a las etiquetas que 
+            las contienen (< ul > para listas de viñetas y < ol > para listas 
+                numeradas), ya que la etiqueta < li > es universal para 
+                    ambos tipos de listas, declarando cada ítem 
+    individualmente</p>
+    <li>
+        <li>Elementos desordenado</li>
+        <ul>
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <ol>
+                <li>sub elemento ordenado 1</li>
+                <li>sub elemento ordenado 3</li>
+            </ol>
+        </ul>
+        <li>Elemento ordenadas</li>
+        <ol>
+            <li>ordenadas 1</li>
+            <li>Ordenadas 2</li>
+            <ul>
+                <li>sub elemento desordenado 1</li>
+                <li>sub elemento desordenado 2</li>
+            </ul>
+            <li >Los elemento pueden ser <a href="#">Links</a></li>
+        </ol>
+
+    </li>
+    <!--Imagenes-->
+    <hr>
+    <h2>Etiqueta < img > imagenes</h2>
+    <img src="img.jpg" width="500px"><br>
+    <h4>Imagen con link </h4>
+    <a href="https://www.netflix.com/ar/">
+        <img src="Netflix.png" alt="Logotipo de netflix" width="100" height="">
+    </a><br>
+    <img src="imagens/istockphoto-1280366064-612x612.jpg" width="500" wsrcset="" >
+    <hr>    
+    <h2>etiqueta para tablas</h2>
+    <p> 
+        La etiqueta principal para crear una tabla en HTML es < table >. Dentro de esta, se utilizan <tr> para definir cada fila y <td> para las celdas de datos. Para las celdas de encabezado se usa <th>. 
+        Estructura básica
+
+    < table >: Etiqueta contenedora que engloba toda la tabla. <br>
+    < tr >: Define una fila dentro de la tabla. <br>
+    < td >: Define una celda de datos dentro de una fila. <br>
+    < t h>: Define una celda de encabezado, generalmente para el título de una columna. </p> <br>
+
+        <table>
+        <tr>
+            <td>Elemento 1</td>
+            <td>Elemento 2</td>
+        </tr>
+        <tr>
+            <td>Elemento 1 fila 2</td>
+            <td>Elemento 2 fila 2</td>
+        </tr>
+    </table>
+    <p>
+        La etiqueta < table > en HTML se usa para crear tablas, y sus atributos 
+        definen su apariencia y comportamiento. 
+        Los atributos más comunes son <b>border </b> para el borde, <b>cellpadding</b> para el espacio 
+        interno de las celdas, <b>cellspacing</b>  para el espacio entre celdas, <b>width</b>  y <b>height</b> 
+        para el tamaño, <b>bgcolor</b>  o <b>background</b>  para el color/imagen de fondo, y <b>align</b> para la alineación de la tabla en el documento. 
+    </p>
+    <table border="2px" width="500px" height="100px" align="center" >
+        <tr>
+            <td>Elemento 1</td>
+            <td>Elemento 2</td>
+        </tr>
+        <tr>
+            <td>Elemento 1 fila 2</td>
+            <td>Elemento 2 fila 2</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Etiquetas de formularios</h2>
+    <h4>Atributos principales</h4>
+    
+    <p>
+        
+        <b>action:</b> Especifica la URL del script del servidor que procesará los datos del formulario. <br>
+        <b>method:</b>  Define el método HTTP para enviar el formulario. Los más comunes son: <br>
+        <li>
+            <ul> <b>GET:</b> Los datos se envían como parte de la URL.</ul>
+            <ul> <b>POST:</b> Los datos se envían en el cuerpo de la solicitud.</ul>            
+        </li>
+        <b>enctype:</b> Indica cómo deben codificarse los datos del formulario al enviarse. Es crucial para subir archivos, donde se usa multipart/form-data. <br>
+    </p>
+    <h4>Otros atributos importantes</h4>
+    <p>
+        <b>target:</b>  Define dónde se mostrará el resultado de la respuesta del formulario. _blank lo abrirá en una nueva pestaña. <br>
+        <b>accept-charset:</b>  Especifica la codificación de caracteres para el formulario. Se usa para asegurar la correcta interpretación de caracteres de diferentes idiomas. <br>
+        <b>autocomplete:</b>  Permite que el navegador sugiera valores guardados previamente en los campos del formulario, mejorando la experiencia del usuario. <br>
+        <b>novalidate:</b>  Un atributo booleano que desactiva la validación del formulario antes de enviarlo. <br>
+    </p>
+    <h3>La etiqueta input y lavel</h3>
+    <p>
+        La etiqueta <b>< label ></b>  se usa para asociar texto descriptivo con un campo de 
+        entrada <b>(< input >)</b>  mediante los atributos for <b>(en < label >)</b>  en id <b>( < input >)</b> . 
+        Los atributos comunes de <b>< input ></b>  incluyen type para especificar el tipo de 
+        dato (como text, number, email), value para el valor inicial y placeholder 
+        para un texto de ejemplo. <br>
+        Atributos de la etiqueta  <b>< label ></b>
+            for: Vincula la etiqueta con un elemento de formulario específico. El valor debe coincidir con el atributo id del <b>< input ></b>.
+            form: Asocia la etiqueta con un formulario específico si el label está fuera de un form.
+    </p>
+
+    <form action="datos.php" method="get" >
+        <label for="texto">texto</label>
+        <input type="text"><br>
+        <label for="password">password</label>
+        <input type="password"><br>
+        <label for="button">button</label>
+        <input type="button" value="enviar"><br>
+        <label for="radio">radio</label>
+        <input type="radio" name="selec"><input type="radio" name="selec"> <br>
+        <label for="range">range</label>
+        <input type="range"><br>
+        <label for="email">email</label>
+        <input type="email"><br>
+        <label for="number" >number</label>
+        <input type="number"><br>
+        <label for="checkbox">checkbox</label>
+        <input type="checkbox" name="opcion" id=""><input type="checkbox" name="opcion" id=""><br>
+        <label for="selec">select</label>
+        <select>
+            <option value="Mexico">Mexico</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Ninguna">Ninguna</option>
+        </select><br>
+        <label for="color">color</label>
+        <input type="color" name="" id="">
+    </form>
+    <hr>
+    <h2>Etiqueta layout</h2>
+
+    <br><br>
+</body>
+</html>
