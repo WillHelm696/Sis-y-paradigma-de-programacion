@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Mi página CON HOJA DE ESTILO</TITLE>
+<meta charset="utf8"></meta>
+
+<LINK REL="stylesheet" TYPE="text/css" HREF="estilos.css">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+
+	
+</SCRIPT>
+
+</HEAD>
+<BODY class='FondoPagina'>
+<H1 class='dos' align='center'>Bienvenidos todos a mi p&aacute;gina</H1>
+<HR>
+<P> - Comenzamos a incorporar objetos HTML -</p>
+<div class='clasediv_padre'>
+	<div class='clasediv_hijo'>
+
+		<label class='label'>Nombre</label>
+		<input type='text' class='uno' id='nombre'></input>
+		<br>
+		<label class='label'>Apellido</label>
+		<input type='text' class='uno' id='apellido'></input>
+		<br>
+		<label class='label'>DNI</label>
+		<input type='text' class='uno' id='dni' size="10"></input>
+		<br>	
+		<label class='label'>EDAD</label>
+		<input type='text' class='uno' id='edad' size="10"></input>
+		<br>
+		<label class='label'>Provincias</label>		
+		<select id='provincias'>
+			<option value='codigo_mendoza'>Mendoza</option>
+			<option value='codigo_sanjuan'>San Juan</option>
+			<option value='codigo_sanluis'>San Luis</option>
+			<option value='codigo_buenosaires'>Buenos Aires</option>
+			<option value='codigo_cordoba'>Cordoba</option>
+		</select>
+		<br>
+		<br>
+		<label id="mensaje">ESTO SERA UN MENSAJE</label>
+		<br>
+		<br>
+		<input type='button' class='BotonImprimir' value='ES UN BOTON' align='center' onclick="CalcularNacimiento()" id='boton'></input>
+		
+	</div>
+</div>
+
+</BODY>
+</HTML>

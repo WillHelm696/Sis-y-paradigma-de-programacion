@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(157, 255, 239);
+    padding: 50px;
+    flex-direction: column;
+    display: flex;
+    
+}
+
+
+
+.Form-Registro{
+    background-color: #6fb3f7;
+    border: solid #222;
+    width: 550px;
+    height: 400px;
+    padding: 30px;
+}
+
+.nota{
+    width: 30px;
+}
+
+.boton{
+    align-items: 50%;
+    padding: 30px;
+}

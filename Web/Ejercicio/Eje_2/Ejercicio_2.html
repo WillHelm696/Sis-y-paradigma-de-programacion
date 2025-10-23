@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="scrip.js"></script>
+    <title>Ejercicio 2</title>
+    <script src="script.js"></script>
 </head>
-
 <body>
-    <form action="" >
-        <label for="Minimo">Numero Minimo</label>
-        <input id="min" type="number" value="Min">
+    <form action="">
+        <label for="min">Número Mínimo</label>
+        <input id="min" type="number" placeholder="Mínimo">
         <br>
-        <label for="Maximo">Numero Maximo</label>
-        <input id="max" type="number" value="Max">
+        <label for="max">Número Máximo</label>
+        <input id="max" type="number" placeholder="Máximo">
         <br>
-        <button value="enviar" onclick="calcular_impar()">enviar</button>
-        <label id="mesaje"></label>
+        <button type="button" onclick="calcular_impar()">Enviar</button>
+        <div>
+            <p id="mensaje"></p>
+        </div>
     </form>
-
 </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Datos Personales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h2>Datos Personales</h2>
+    <table id="tablaDatos">
+        <!-- ********************************************************************************************** -->
+        <thead class="encabezado">
+            <tr >
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <!-- ********************************************************************************************** -->
+        <form id="tiketForm" onchange="Validar_Form()">
+            <tr>
+                <td><label for="nombre">Nombre:</label></td>
+                <td><input type="text" id="nombre" name="nombre" onkeypress=""></td>
+            </tr>
+            
+            <tr>
+                <td><label for="apellido">Apellido:</label></td>
+                <td><input type="text" id="apellido" name="apellido"></td>
+            </tr>
+            
+            <tr>
+                <td><label for="edad">Edad:</label></td>
+                <td><input type="number" id="edad" name="edad"></td>
+            </tr>
+            
+            <TR>
+                <td><label for="direccion">Direccion</label></td>
+                <td><input type="text" id="direccion" name="direccion"></td>
+            </TR>
+            
+            <tr>
+                <td><label for="genero">Género:</label></td>
+                <td>
+                    <input type="radio" id="masculino" value="M" name="seleccion">
+                    <label for="masculino">M</label>
+                    
+                    <input type="radio" id="femenino" value="F" name="seleccion">
+                    <label for="femenino">F</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="Provincia">Provincia:</label></td>
+                <td class="provincia">
+                    <select id="provincia" name="provincia" onchange="selecionar_provicia(this.value)">
+                        <option value="">Seleccione...</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Catamarca">Catamarca</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Corrientes">Corrientes</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Formosa">Formosa</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="La Pampa">La Pampa</option>
+                        <option value="La Rioja">La Rioja</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Misiones">Misiones</option>
+                        <option value="Neuquén">Neuquén</option>
+                        <option value="Río Negro">Río Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="Santiago del Estero">Santiago del Estero</option>
+                        <option value="Tierra del Fuego">Tierra del Fuego</option>
+                        <option value="Tucumán">Tucumán</option>
+                    </select>
+
+                    <img id="imag" src="" alt="Mapa provincia"/>
+                </td>
+            </tr>
+        </form>
+        <!-- ********************************************************************************************** -->
+    </table>
+    <button class="boton" onclick="guardarDatos()">Guardar Datos</button>
+    <p id="datos"></p>
+</body>
+</html>

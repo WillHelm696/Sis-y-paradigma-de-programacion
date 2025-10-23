@@ -1,0 +1,18 @@
+P { 
+    color: #3366CC; 
+    font-family: Arial; 
+    font-weight: bold;
+    background-color: #8ad0e4;
+
+}
+H1 { text-align: center}
+
+H2, H3 { 
+    color: blue 
+}
+
+H1.uno { color: #FF6600 }
+H1.dos {color: #FF6666 }
+H1.tres {color:#FF66FF }
+
+.uno { color: #FF66FF }

@@ -1,0 +1,77 @@
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+H1, H2, H3 { 
+	color: blue;
+	background: #5eff00;
+
+}
+
+.uno { 
+	font-size: 30px; 
+	font-family: arial; 
+	color: rgb(0, 255, 191);
+	background: #FF6600
+
+}
+*.dos {color: #8766ff }
+
+
+.BotonImprimir
+{
+    BORDER-RIGHT: #b4d5d4 thin outset;
+    PADDING-RIGHT: 8px;
+    BORDER-TOP: #b4d5d4 thin outset;
+    PADDING-LEFT: 8px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: #b4d5d4 thin outset;
+    WIDTH: 120px;
+    CURSOR: hand;
+    CURSOR: pointer;
+    COLOR: white;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #b4d5d4 thin outset;
+    FONT-FAMILY: Verdana, 'MS Sans Serif';
+    HEIGHT: 22px;
+    BACKGROUND-COLOR: #005d77
+}
+
+.label
+{
+    PADDING-RIGHT: 2px;
+    PADDING-LEFT: 6px;
+    FONT: bold 13px arial;
+    COLOR: #00559a;
+    /*TEXT-ALIGN: right*/
+}
+.clasediv_padre {
+	/*
+	height:40%;
+	width:50%;  
+	*/
+	display: flex;
+	justify-content: center;
+
+}
+.clasediv_hijo {
+	text-align: center;
+	BACKGROUND-COLOR: #FFD968;
+	padding: 10px;
+	margin: 10px;
+  	height:30%;
+	width:80%;
+}
+
+.FondoPagina
+{
+    BACKGROUND-POSITION: center;
+    BACKGROUND-ATTACHMENT: fixed ;
+    BACKGROUND-IMAGE: url(itu_vitual_blanco.png);
+    BACKGROUND-REPEAT: no-repeat; 
+    BACKGROUND-COLOR: #e1ddd2;
+}
