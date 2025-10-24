@@ -1,0 +1,59 @@
+body {
+font-family: Arial, sans-serif;
+background: #f2f2f2;
+padding: 100px;
+}
+
+form {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.row div{
+    margin: 30px;
+    
+}
+
+.campo {
+display: flex;
+align-items: center;
+margin-bottom: 8px;
+width: 10px;
+}
+
+.campo input[type="text"],
+.campo input[type="number"] {
+padding: 5px;
+margin-right: 5px;
+flex: 1;
+}
+
+.eliminar {
+background: red;
+color: white;
+border: none;
+padding: 4px 8px;
+cursor: pointer;
+}
+
+#agregar {
+background: #2e86de;
+color: white;
+border: none;
+padding: 6px 10px;
+cursor: pointer;
+margin-top: 5px;
+}
+
+button[type="submit"] {
+background: #27ae60;
+color: white;
+border: none;
+padding: 6px 10px;
+cursor: pointer;
+margin-top: 5px;
+}

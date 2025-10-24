@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate JS</title>
-    <script src="app.js"></script>
+<meta charset="UTF-8">
+<title>Materias y notas</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
 </head>
-<body>
-    <h1>Datos</h1>
-
-    <br>
-    <br>
+    <body>
+        <form id="formulario" onchange="">
+            <h3>Datos Estudiante</h3>
+            <div class="row">
+                
+                <div >
+                    <input id="nombre" class="entrada" type="text" placeholder="Nombre" required>
+                    <input id="apellido" class="entrada" type="text" placeholder="Apellido" required>
+                </div>
     
-    <form action="" >
-        <label for="DNI" Value="DNI">DNI</label>
-        <input id="dni" type="number" value=""> <br>
-        <label id="mesaje"></label>
+                <div>
+                    <input id="direccion" type="text" placeholder="Dirreccion" required>
+                </div>
+                <div>
+                    <input type="number" placeholder="DNI" required>
+                </div>
+                
+                <div>
+                    <label for="fecha">Nacimiento</label>
+                    <input id="fecha" type="date" required>
+                </div>
+            </div>
 
-        <label for="edad" Value="Edad">Edad</label>
-        <input id="nombre" type="text" value=""> <br>
-        <button class="BotonImprimir" value="Guardad datos" onclick="save()">Guardar</button>
-        <br>
-        <br>
+            <br>
 
-        <label for="Nombre" Value="Nombre">Nombre</label>
-        <input id="nombre" type="text" value=""> <br>
+            <div id="campos">
+                <label for="materias">Materias</label>
+                <div class="campo">
+                    <input type="text" name="materia[]" placeholder="Materia" required>
+                    <input class="nota" type="number" name="nota[]" placeholder="Nota" min="0" max="10" required >
+                    <button type="button" class="eliminar">X</button>
+                </div>
+            </div>
 
-        <label for="Contraseña" Value="Contraseña">Contraseña</label>
-        <input id="Contraseña" type="password" value=""> <br>
-
-        <label for="Gmail" Value="Gmail">Gmail</label>
-        <input id="gmail" type="email" value=""> <br>
-
-
-        <br>
-        <button class="BotonImprimir" value="Es un boton" onclick="datos()">Enviar</button>
-    </form>
-</body>
+            <button type="button" id="agregar">+ Agregar</button>
+            <button type="submit">Enviar</button >
+        </form>
+    </body>
 </html>
