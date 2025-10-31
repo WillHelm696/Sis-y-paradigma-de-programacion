@@ -1,0 +1,64 @@
+<HTML>
+    <HEAD>
+        <title>PAGINA DE LOGUEO</title>
+		
+		<script type="text/javascript" language="javascript">
+		
+		function enviar_informacion_get(){
+		
+			var nombre = document.getElementById("formulario_get").nombreUser.value;
+			var clave = document.getElementById("formulario_get").contraseña.value;
+			if(nombre.length<=0 || clave.length<=0){
+				alert("**DEBE INGRESAR EL USUARIO Y LA CONTRASEÑA**");
+			}else{
+
+				//document.getElementById("formulario_get").action = "";
+				document.getElementById("formulario_get").submit();
+			}		
+		}
+		
+		function enviar_informacion_post(){
+		
+			var nombre = document.getElementById("formulario_post").nombreUser.value;
+			var clave = document.getElementById("formulario_post").contraseña.value;
+			if(nombre.length<=0 || clave.length<=0){
+				alert("**DEBE INGRESAR EL USUARIO Y LA CONTRASEÑA**");
+			}else{
+				document.getElementById("formulario_post").submit();
+			}		
+		}
+		
+		</script>
+    </HEAD>
+	
+<BODY>
+
+	<div align="center">
+		<a style='color:#76333A; font-size: 24px; font-weight: bold;'>
+			- EJEMPLO DE PAGINA CON FORMULARIOS Y SCRIPT -
+		</a>
+	</div>
+	<BR><HR><BR>
+	<form action="/usuario" method="get" id="formulario_get" name="formulario_get">
+		<label for="nombreUser">Nombre de Usuario: </label>
+		<input type="text" name="nombreUser"><br/>
+	 
+		<label for="contraseña">Contraseña: </label>
+		<input type="password" name="contraseña"><br/><br/>
+	 
+		<input type="button" value="Iniciar Sesión (GET)" onclick="enviar_informacion_get();"/>
+		
+	</form>
+	<HR>
+	<form action="/usuario" method="post" id="formulario_post" name="formulario_post">
+		<label for="nombreUser">Nombre de Usuario: </label>
+		<input type="text" name="nombreUser"><br/>
+	 
+		<label for="contraseña">Contraseña: </label>
+		<input type="password" name="contraseña"><br/><br/>
+	 
+		<input type="button" value="Iniciar Sesión (POST)" onclick="enviar_informacion_post();" />
+	</form>
+	<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>.:: ITU ::.</title>
+
+<!--script rel="javascript" type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script-->
+<script rel="javascript" type="text/javascript"  src="jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+
+function enviar_datos(){
+
+	if(document.getElementById('id_dni').value.length<=0){
+		alert("DEBE CARGAR UN DNI")
+		return
+	}
+	if(document.getElementById('id_nombre').value.length<=0){
+		alert("DEBE CARGAR UN NOMBRE 111111")
+		return
+	}
+	var dni = document.getElementById('id_dni').value;
+	var nombre = document.getElementById('id_nombre').value;
+
+	// Los parametros a  enviar
+    datos = {"pp_dni": dni,"pp_nombre": nombre}
+	 $.ajax({
+        
+	        type: 'POST',
+	        url: 'http://127.0.0.1:5000/servidor',
+            data: JSON.stringify(datos),
+            headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+            },
+	        success: function (respuesta) {
+
+				// alert("Respuesta: "+respuesta.mensaje); //CUANDO DEVUELVO UN TEXTO
+				document.getElementById("mensaje").innerHTML = respuesta.mensaje
+
+	        },
+	        error: function (respuesta) {
+                alert("HUBO UN ERROR");
+
+	        }
+	    });
+
+}
+
+function enviar_datos_bis(){
+
+	if(document.getElementById('id_dni').value.length<=0){
+		alert("DEBE CARGAR UN DNI")
+		return
+	}
+	if(document.getElementById('id_nombre').value.length<=0){
+		alert("DEBE CARGAR UN NOMBRE")
+		return
+	}
+	var dni = document.getElementById('id_dni').value;
+	var nombre = document.getElementById('id_nombre').value;
+
+	// Los parametrosa  enviar
+	datos = {"p_dni": dni,"p_nombre": nombre}
+	$.ajax({
+		
+			type: 'POST',
+			url: 'http://127.0.0.1:5000/servidor_estructura',
+			data: JSON.stringify(datos),
+			headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+			},
+			success: function (respuesta) {
+
+				mensaje = ""
+				claves = Object.keys(respuesta)
+				if(claves.length>0){
+					for(i=0;i<claves.length;i++){
+						// console.log(claves[i]+ " --- "+respuesta[claves[i]]);
+						mensaje += claves[i]+ ": "+respuesta[claves[i]] + "<br>"
+					}
+					
+				}else{
+					mensaje = "NO HAY DATOS"
+				}
+
+				document.getElementById("mensaje").innerHTML = mensaje
+
+			},
+			error: function (respuesta) {
+				alert("HUBO UN ERROR");
+			}
+		});
+
+}
+</script>
+
+</head>
+<body>
+
+DNI:<input type="text" id="id_dni" value=""></input><BR>
+NOMBRE:<input type="text" id="id_nombre" value=""></input><BR>
+<BR>
+<input type="button" value="ENVIAR - RECIBE TEXTO" onclick="enviar_datos()"></input>
+<BR>
+<BR>
+<input type="button" value="ENVIAR - RECIBE ESTRUCTURA" onclick="enviar_datos_bis()"></input>
+<BR>
+<BR>
+<label id="mensaje" style="color:brown"></label>
+</body>
+</html>
