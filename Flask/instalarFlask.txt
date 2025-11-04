@@ -1,4 +1,35 @@
+Como ignorar la carpeta venv
+
+#creá o abrí un archivo llamado .gitignore:
+nano .gitignore
+#Y adentro agregá esta línea:
+Flask/venv/
+# Ignorar entornos virtuales
+venv/
+*/venv/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Archivos temporales o de sistema
+*.log
+*.tmp
+.DS_Store
+	
+#Asegurate de que Git deje de rastrear la carpeta
+git rm -r --cached Flask/venv
+
+#Cuando otra persona (o vos en otra PC) descargue el proyecto, solo tiene que ejecutar:
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+
+#Instalar Flask como entorno virtual
+
 mkdir MiAppFlask
+
 cd MiAppFlask
 
 python3 -m venv venv

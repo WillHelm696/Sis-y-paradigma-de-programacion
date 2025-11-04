@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_9</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+    <body>
+        <section class="nombres">
+            <h1>Ordenar lista de 5 nombres</h1>
+
+            <div>
+                <label for="nombre1" >Nombre 1</label>
+                <input type="text" id="nombre1" placeholder="nombre 1">
+            </div>
+            <div>
+                <label for="nombre2">Nombre 2</label>
+                <input type="text" id="nombre2" placeholder="nombre2">
+            </div>
+            <div>
+                <label for="nombre3">Nombre 3</label>
+                <input type="text" id="nombre3" placeholder="nombre 3">
+            </div>
+            <div>
+                <label for="nombre4">Nombre 4</label>
+                <input type="text" id="nombre4" placeholder="nombre 3">
+            </div>
+            <div>
+                <label for="nombre5">Nombre 5</label>
+                <input type="text" id="nombre5" placeholder="nombre 5">
+            </div>
+            <button class="boton" onclick="ordenar()">Ordenar</button>
+            <table>
+                <ol>
+                    <table class="ordenada" id="lista"></table>
+                </ol>
+            </table>
+            <button class="boton">Es Mayor ?</button>
+            <label id="perosana" onclick="es_mayor()"></label>
+        </section>
+
+    </body>
+</html>
