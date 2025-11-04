@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_7</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" ></script>
+</head>
+<body>
+    <section class="registro">
+        <h1>Análisis de Sangre:</h1>
+        <div class="contenedor">
+            <label for="nombre" class="contenido">Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" name="apellido " id="apellido" placeholder="Apellido" >
+        </div>
+        <div class="contenedor">
+            <label for="tipo" class="contenido">Tipo de Documento</label>
+            <select name="tipo" id="tipo">
+                <option value="selecione">Selecione</option>
+                <option value="dni">Dni</option>
+                <option value="pasaporte">Pasaporte</option>
+                <option value="carnet">Carnet de Conducir</option>
+            </select>
+        </div>
+        <div class="contenedor">
+            <label for="colesterol" class="contenido">Colesterol</label>
+            <input type="number" name="colesterol" id="colesterol">
+        </div>
+        <div class="contenedor">
+            <label for="globulos_rojos" class="contenido">Globulos Rojos</label>
+            <input type="number" name="globulos_rojos" id="globulos_rojos">
+        </div>
+        <div class="contenedor">
+            <label for="globulos_bancos" class="contenido">Globulos Blancos</label>
+            <input type="number" name="globulos_bancos" id="globulos_blancos">
+        </div>
+        <div class="contenedor">
+            <label for="glucemia" class="contenido">Glucemia</label>
+            <input type="number" name="glucemia" id="glucemia">
+        </div>
+        <div class="contenedor">
+            <label for="trigliceridos" class="contenido">Triglicéridos</label>
+            <input type="number" name="trigliceridos" id="trigliceridos">
+        </div>
+
+        <button type="button" onclick="verificacion()">Enviar</button>
+    </section>
+    <label id="mensaje"></label>
+</body>
+</html>

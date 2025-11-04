@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <section class="datos">
+        <h1>Promedio, nota alta y mayor de edad ?</h1>
+        <div class="registro">
+            
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre pla" placeholder="apellido">
+                <input type="text" id="apellido" placeholder="Apellido">
+            </div>
+            <div>
+                <label for="Fecha">Fecha Nacimiento</label>
+                <input type="date" id="fecha">
+    
+            </div>
+            <div>
+                <label for="dni">D.N.I</label>
+                <input type="number" id="dni" placeholder="DNI">
+            </div>
+        </div>
+
+        <div>
+            <table class="notas">
+                <th>
+                    <td><input type="text" placeholder="Materia"></td>
+                </th>
+                <tr>
+                    <td>Examen 1</td>
+                    <td><input type="number" placeholder="Nota 1"></td>
+                </tr>
+                <tr>
+                    <td>Examen 2</td>
+                    <td><input type="number" placeholder="Nota 2"></td>
+                </tr>
+                <tr>
+                    <td>Examen 3</td>
+                    <td><input type="number" placeholder="Nota 3"></td>
+                </tr>
+                <tr>
+                    <td>Examen 4</td>
+                    <td><input type="number" placeholder="Nota 4"></td>
+                </tr>
+                <tr>
+                    <td>Examen 5</td>
+                    <td><input type="number" placeholder="Nota 5"></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <button type="button" onclick="verificar_datos">Enviar</button>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* Fondo general */
+body {
+    background-color: #7cbdff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Título principal */
+h1 {
+    color: #2d72b8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Sección del formulario */
+.registro {
+    background-color: #fc7474;
+    padding: 30px;
+    border-radius: 50px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Contenedores de cada campo */
+.contenedor {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+.contenido {
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+/* Inputs y select */
+input[type="text"],input[type="number"], select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+button{
+    border: 1px solid;
+    border-radius: 30px;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    margin: auto;
+}

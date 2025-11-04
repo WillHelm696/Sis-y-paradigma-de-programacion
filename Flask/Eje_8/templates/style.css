@@ -1,0 +1,33 @@
+body{
+    text-align: center;
+    background-color:rgb(192, 192, 192);
+}
+
+.datos{
+
+    border-radius: 30px;
+    border: solid ;
+    background-color: antiquewhite;
+    width: 700px;
+    height: 600px;
+    margin: auto;
+
+}
+
+.notas {
+    border-radius: 30px;
+    background-color: aqua;
+    border: solid 1px #000000;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    position: relative;
+}
+
+.registro {
+    border: solid;
+    border-radius: 30px;
+    width: 600px;
+    height: 100px;
+    margin: auto;
+}

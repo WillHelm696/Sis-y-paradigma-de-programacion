@@ -6,28 +6,62 @@
     <title>Ejercicio_6</title>
 </head>
 <body>
-    <thead>
-        <h1>Operacione Matematica</h1>
-    </thead>
-    <section>
+    <h1>Operacione Matematica</h1>
+    
+    <form action="/operaciones" method="POST">
+        <h2>Metodo POST</h2>
+        <div>
+            <label for="num1">Numero 1:</label>
+            <input type="number" name="num1" placeholder="Numero 1" id="num1">
+        </div>
+        <div>
+            <label for="num2">Numero 2:</label>
+            <input type="number" name="num2" placeholder="Numero 1" id="num2">
+        </div>
+
+        <select name="operacion" id="operacion">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="division">Division</option>
+            <option value="multiplicacion">Multiplicacion</option>
+        </select>
+        <button type="submit">Calcular</button>
         
         <div>
-            <label for="suma">suma</label>
-            <input type="radio" name="operacion" id="suma">
+            <label for="resultado">Resultado:</label>
+            {% if resultado is not none %}
+                <strong>{{ resultado_post }}</strong>
+            {% endif %}
         </div>
-        
+    </form>
+
+    <form action="/operaciones" method="GET">
+        <h2>Metodo GET</h2>
         <div>
-            <label for="resta">Resta</label>
-            <input type="radio" name="operacion" id="resta">
+            <label for="num1">Numero 1:</label>
+            <input type="number" name="num1" placeholder="Numero 1" id="num1">
         </div>
-
-    </section>
-
-    <section>
         <div>
-            <label for="resultado">resultado</label>
-
+            <label for="num2">Numero 2:</label>
+            <input type="number" name="num2" placeholder="Numero 2" id="num2">
         </div>
-    </section>
+
+        <select name="operacion" id="operacion">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicacion</option>
+            <option value="division">Division</option>
+        </select>
+
+        <button type="submit">Calcular</button>
+
+        <div>
+            <label for="resultado">Resultado:</label>
+            {% if resultado is not none %}
+                <strong>{{ resultado_get }}</strong>
+            {% endif %}
+        </div>
+    </form>
+
 </body>
 </html>
