@@ -3,6 +3,7 @@ body{
 }
 
 .nombres{
+    background-color: bisque;
     margin: auto;
     text-align: center;
     border: solid 1px #000;
@@ -17,6 +18,7 @@ body{
 }
 
 .ordenada{
+    background-color: rgb(167, 167, 167);
     margin: auto;
     border: solid 1px #000;
     width: 500px;
