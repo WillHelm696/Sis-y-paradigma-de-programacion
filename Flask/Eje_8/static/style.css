@@ -9,7 +9,7 @@ body{
     border: solid ;
     background-color: antiquewhite;
     width: 700px;
-    height: 600px;
+    height: 800px;
     margin: auto;
 
 }
@@ -30,4 +30,8 @@ body{
     width: 600px;
     height: 100px;
     margin: auto;
+}
+
+.caja{
+    width: 60px;
 }

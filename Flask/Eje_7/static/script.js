@@ -25,9 +25,17 @@ function validar_datos(datos, mensajeElement) {
             'Content-Type': 'application/json'
         },
         success: function(respuesta) {
-            let html = "Exito";
-            mensajeElement.innerHTML = html;
+            let html = `
+                <h2>${respuesta.titulo}</h2>
+                <p><strong>Datos Recibidos:</strong> ${respuesta.datos_recibidos}</p>
+                <hr>
+                <p><strong>Conclusión del Servidor:</strong></p>
+                <ul>
+                    ${respuesta.conclusion.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
             mensajeElement.className = respuesta.tipo; // Usa la clase de estilo definida por Flask
+            mensajeElement.innerHTML = html;
         },
         error: function(xhr, status, error) {
             console.error('Error al comunicarse con el servidor:', error);

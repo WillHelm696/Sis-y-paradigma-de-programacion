@@ -6,7 +6,7 @@ function enviar_datos(){
 	}
 	if(document.getElementById('id_nombre').value.length<=0){
 		alert("DEBE CARGAR UN NOMBRE 111111")
-		return
+		return 
 	}
 	var dni = document.getElementById('id_dni').value;
 	var nombre = document.getElementById('id_nombre').value;
@@ -40,7 +40,7 @@ function enviar_datos_bis(){
 
 	if(document.getElementById('id_dni').value.length<=0){
 		alert("DEBE CARGAR UN DNI")
-		return
+	return
 	}
 	if(document.getElementById('id_nombre').value.length<=0){
 		alert("DEBE CARGAR UN NOMBRE")
@@ -62,7 +62,7 @@ function enviar_datos_bis(){
 			},
 			success: function (respuesta) {
 
-				mensaje = ""
+			mensaje = ""
 				claves = Object.keys(respuesta)
 				if(claves.length>0){
 					for(i=0;i<claves.length;i++){

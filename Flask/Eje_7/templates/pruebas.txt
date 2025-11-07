@@ -1,0 +1,19 @@
+Escenario,Nombre,Apellido,Doc.,Colesterol (mg/dL),Glóbulos Rojos (millones/mm³),Glóbulos Blancos (miles/mm³),Glucemia (mg/dL),Triglicéridos (mg/dL),Resultado Esperado (Backend)
+
+1. Todo Normal  ,
+Ana,Gómez,DNI,180,4.8,7.5,90,110,Triglicéridos Normal. (Llama a /analisis_trigliceridos)
+
+2. Colesterol Alto y Glob. Anormales    
+,Luis,Pérez,DNI,250,6.5,4.0,95,130,Glóbulos Rojos (Alto) y Glóbulos Blancos (Bajo). (Llama a /analisis_globulos)
+
+3. Colesterol Límite, Trigl. Alto",
+Elena,Ruiz,Pass.,200,5.2,8.1,100,180,Triglicéridos Alto. (Llama a /analisis_trigliceridos)
+
+4. Colesterol Alto, Glob. Normales",
+Carlos,Soto,Carnet,215,5.0,9.0,88,105,Ambos Glóbulos Normales. (Llama a /analisis_globulos)
+
+5. Datos Vacíos (Prueba JS),
+Pedro,,DNI,,4.5,7.0,90,120,Error en Frontend (JS): Falta el Apellido y Colesterol.
+
+"6. Colesterol Bajo, Trigl. Normal",
+Marta,Vega,DNI,140,4.4,6.0,85,80,Triglicéridos Normal. (Llama a /analisis_trigliceridos)

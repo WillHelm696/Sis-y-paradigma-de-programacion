@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Ejercicio_8</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+	<script rel="javascript" type="text/javascript"  src="static/jquery-1.11.1.min.js"></script>
 </head>
 <body>
     <section class="datos">
@@ -14,7 +15,7 @@
             
             <div>
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre pla" placeholder="apellido">
+                <input type="text" id="nombre" placeholder="apellido">
                 <input type="text" id="apellido" placeholder="Apellido">
             </div>
             <div>
@@ -31,33 +32,49 @@
         <div>
             <table class="notas">
                 <th>
-                    <td><input type="text" placeholder="Materia"></td>
+                    Selecione Materia
+                    <td>
+                        <select name="materias" id="materias">
+                            <option value="seleccione">Seleccione</option>
+                            <option value="paradigma">Sistema y Paradigma</option>
+                            <option value="sistemas">Sistema Operativo</option>
+                            <option value="legislacion">Legislacion tic</option>
+                        </select>
+                    </td>
+
                 </th>
                 <tr>
                     <td>Examen 1</td>
-                    <td><input type="number" placeholder="Nota 1"></td>
+                    <td><input id="nota1" class="caja" type="number" placeholder="Nota 1"></td>
                 </tr>
                 <tr>
                     <td>Examen 2</td>
-                    <td><input type="number" placeholder="Nota 2"></td>
+                    <td><input id="nota2" class="caja" type="number" placeholder="Nota 2"></td>
                 </tr>
                 <tr>
                     <td>Examen 3</td>
-                    <td><input type="number" placeholder="Nota 3"></td>
+                    <td><input id="nota3" class="caja" type="number" placeholder="Nota 3"></td>
                 </tr>
                 <tr>
                     <td>Examen 4</td>
-                    <td><input type="number" placeholder="Nota 4"></td>
+                    <td><input id="nota4" class="caja" type="number" placeholder="Nota 4"></td>
                 </tr>
                 <tr>
                     <td>Examen 5</td>
-                    <td><input type="number" placeholder="Nota 5"></td>
+                    <td><input id="nota5" class="caja" type="number" placeholder="Nota 5"></td>
                 </tr>
             </table>
         </div>
         <div>
-            <button type="button" onclick="verificar_datos">Enviar</button>
+            <p>Promedio y nota alta</p>
+            <button type="button" onclick="calcular()">Calcular</button><br>
+            <p>Edad adulta</p>
+            <button type="button" onclick="verificar()">Verificar </button>
         </div>
+        <div>
+            <label for="" id="mensaje"></label>
+        </div>
+        
     </section>
 </body>
 </html>
