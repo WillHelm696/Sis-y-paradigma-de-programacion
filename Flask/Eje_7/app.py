@@ -1,4 +1,5 @@
 from flask import Flask,render_template, request,jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -7,13 +8,14 @@ RANGO_GLOBULOS_BLANCOS = (4.5, 11.0) # miles/mm³
 RANGO_TRIGLICERIDOS = (50, 150)      # mg/dL
 COLESTEROL_LIMITE = 200
 
+CORS(app, support_credentials=True)
 
 @app.route('/')
 def inicio():
     return render_template('Ejercicio_7.html')
 
 # Endpoint 1: Colesterol ALTO (valor > COLESTEROL_LIMITE)
-@app.route('/analisis_globulos', methods=['POST'])
+@app.route('/analisis_globulos', methods=['GET','POST'])
 def analisis_globulos():
     datos = request.get_json()
     
@@ -48,7 +50,7 @@ def analisis_globulos():
     })
 
 # Endpoint 2: Colesterol BAJO/NORMAL (valor <= COLESTEROL_LIMITE)
-@app.route('/analisis_trigliceridos', methods=['POST'])
+@app.route('/analisis_trigliceridos', methods=['GET','POST'])
 def analisis_trigliceridos():
     datos = request.get_json()
 

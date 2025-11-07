@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio_7</title>
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-1.11.1.min.js"></script>
     <script src="script.js" ></script>
+
 </head>
 <body>
     <section class="registro">
@@ -13,7 +15,7 @@
         <div class="contenedor">
             <label for="nombre" class="contenido">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <input type="text" name="apellido " id="apellido" placeholder="Apellido" >
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" >
         </div>
         <div class="contenedor">
             <label for="tipo" class="contenido">Tipo de Documento</label>
@@ -45,7 +47,7 @@
             <input type="number" name="trigliceridos" id="trigliceridos">
         </div>
 
-        <button type="button" onclick="verificacion()">Enviar</button>
+        <button type="button" value="enviar_datos" onclick="verificacion()">Enviar</button>
     </section>
     <label id="mensaje"></label>
 </body>

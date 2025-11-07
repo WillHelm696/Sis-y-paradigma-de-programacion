@@ -1,6 +1,6 @@
 const COLESTEROL_LIMITE = 200;
 
-async function validar_datos(datos,mensaje){
+function validar_datos(datos, mensajeElement) {
     // 2. Determinar la URL del servidor según el colesterol
     const colesterolValor = parseFloat(datos.colesterol);
     let url;
@@ -11,36 +11,32 @@ async function validar_datos(datos,mensaje){
         // Colesterol Normal/Bajo: Analizar Triglicéridos
         url = '/analisis_trigliceridos';
     }
-    // 3. Llamada AJAX (fetch) al servidor
-    mensaje.className = 'enviando';
-    mensaje.innerHTML = 'Enviando datos al servidor para análisis...';
-    try {
-        const respuesta = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datos)
-        });
-        const resultadoFlask = await respuesta.json();
-        // 4. Mostrar la respuesta del servidor
-        let html = `
-            <h2>${resultado.titulo}</h2>
-            <p><strong>Datos Recibidos:</strong> ${resultado.datos_recibidos}</p>
-            <hr>
-            <p><strong>Conclusión del Servidor:</strong></p>
-            <ul>
-                ${resultado.conclusion.map(item => `<li>${item}</li>`).join('')}
-            </ul>
-        `;
-        mensaje.className = resultado.tipo; // Usa la clase de estilo definida por Flask
-        mensaje.innerHTML = html;
-    } catch (error) {
-        console.error('Error al comunicarse con el servidor:', error);
-        mensaje.className = 'error';
-        mensaje.innerHTML = '**Error de Conexión:** No se pudo contactar al servidor Flask.';
-    }
+
+    // 3. Llamada AJAX con jQuery
+    mensajeElement.className = 'enviando';
+    mensajeElement.innerHTML = 'Enviando datos al servidor para análisis...';
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify(datos),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function(respuesta) {
+            let html = "Exito";
+            mensajeElement.innerHTML = html;
+            mensajeElement.className = respuesta.tipo; // Usa la clase de estilo definida por Flask
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al comunicarse con el servidor:', error);
+            mensajeElement.className = 'error';
+            mensajeElement.innerHTML = '**Error de Conexión:** No se pudo contactar al servidor Flask.';
+        }
+    });
 }
+
 
 function verificacion(){
     datos ={
