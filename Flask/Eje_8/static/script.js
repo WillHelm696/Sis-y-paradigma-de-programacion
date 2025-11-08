@@ -18,23 +18,22 @@ function informacion_personal(){
     return {
         'nombre' : document.getElementById('nombre').value,
         'apellido' : document.getElementById('apellido').value,
-        'fecha' : parseInt(document.getElementById('fecha').value),
-        'dni' : parseInt(document.getElementById('dni').value)
+        'dni' : parseInt(document.getElementById('dni').value),
+        'fecha' : document.getElementById('fecha').value
     }
 }
 
 function datos_completos(solicitud){    
     let notas = notas_materia()
     let datos = informacion_personal()
-
     let respuesta = "";
-    
+    Enviar_mensaje("")
     
     if (!datos.nombre){
         respuesta += "Falta colocar Nombre <br>"
     }if (!datos.apellido){
         respuesta += "Falta colocar Apellido <br>"
-    }if (isNaN(datos.fecha)){
+    }if (!datos.fecha){
         respuesta += "Fala colocar Fecha <br>"
     }if (isNaN(datos.dni)){
         respuesta += "Falta colocar dni <br>"
@@ -45,67 +44,61 @@ function datos_completos(solicitud){
     if (isNaN(respuesta ) === true){
         Enviar_mensaje(respuesta)
         return
-    }if (solicitud==="1"){
+    }if (solicitud ==="1"){
         return notas
     }if (solicitud === "2"){
-        return datos
+        return datos.fecha
     }
 }
 
 
 function calcular(){
     notas = datos_completos("1")
-
     if (!notas){
         return
-    }else{
-        $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:5000/promedio_nota",
-            data:JSON.stringify(notas),
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-            },
-            success: function(respuesta){
-                let html  =
-                `Promedio de Nota:${respuesta.promedio} <br>
-                 Mayror Nota ${respuesta.mayor} <br>                
-                `;
-            Enviar_mensaje(html)
-
-            },
-            error: function (){
-                alert("Error al comunicarse con el servidor");
-            } 
-        })        
     }
-    
+
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/promedio_nota",
+        data:JSON.stringify(notas),
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        success: function(respuesta){
+            let html  =
+            `Promedio de Nota:${respuesta.promedio} <br>
+                Mayror Nota ${respuesta.mayor} <br>                
+            `;
+            Enviar_mensaje(html)
+        },
+        error: function (){
+            alert("Error al comunicarse con el servidor");
+        } 
+    })        
 }
 
 
 function verificar() {
-    informacion = datos_completos("1")
-
-    if (isNaN(informacion)){
+    fecha = datos_completos("2")
+    
+    if (!fecha){
         return
-    }else{
-        $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:5000/veridicar_adultes",
-            data:JSON.stringify(informacion),
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-            },
-            succes: function(respuesta){
-
-                
-                
-            },
-            error: function (){
-                alert("Error al comunicarse con el servidor");
-            } 
-        })
     }
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/veridicar_edad",
+        data:JSON.stringify(fecha),
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        success: function(respuesta){
+            Enviar_mensaje(respuesta.mensaje)
+        },
+        error: function (){
+            alert("Error al comunicarse con el servidor");
+        } 
+    })
 }

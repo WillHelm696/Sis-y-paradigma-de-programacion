@@ -33,14 +33,15 @@
                 <input type="text" id="nombre5" placeholder="nombre 5">
             </div>
             <button class="boton" onclick="ordenar()">Ordenar</button>
-            <table>
-                <ol>
-                    <table class="ordenada" id="lista"></table>
-                </ol>
+
+            <table class="ordenada" >
+                <thead><tr><th>Nombres ordenados</th></tr></thead>
+                <tbody id="lista"></tbody>
+
             </table>
-            <button class="boton">Es Mayor ?</button>
-            <label id="perosana" onclick="es_mayor()"></label>
+            <label id="mensaje"></label>
         </section>
+
 
     </body>
 </html>

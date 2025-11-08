@@ -1,4 +1,5 @@
 from flask import Flask, render_template,request,jsonify
+from datetime import datetime, date
 
 app=Flask(__name__)
 
@@ -34,10 +35,23 @@ def promedio_nota():
     })
 ######################################################################################################3
 
-@app.route('/veridicar_adultes',methods=["POST"])
+@app.route('/veridicar_edad',methods=["POST"])
 def veridicar_adultes():
+    
+    data = request.get_json()
+    fecha_str= data.get("fecha")
+    
+    fecha_nacimiento = datetime.strptime(fecha_str, '%Y-%m-%d').date()
+    hoy = date.today()
+    
+    edad = hoy.year - fecha_nacimiento.year - ((hoy.month, hoy.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
+        
+    if edad >= 18 :
+        mensaje = "es menor"    
+    else:
+        mensaje = "es mayor"
+    return jsonify({'mensaje':mensaje})
 
-    return
 ######################################################################################################3
 
 if __name__ == '__main__':
