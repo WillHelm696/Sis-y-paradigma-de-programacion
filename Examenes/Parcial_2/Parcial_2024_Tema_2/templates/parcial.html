@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/jquery-1.11.1.min.js"></script>
+    <script src="static/script.js"></script>
+</head>
+<body>
+    <section class="datos">
+        <H2>Declaracion de Bienes Inmuebles</H2>
+        <div>
+            <h3>Datos del Contribuyente</h3>
+            <label for="cuit">Cuit</label>
+            <input id="cuit" type="number">
+        </div>
+        <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text">
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text">
+        </div>
+        <h3>Detalle del propietario</h3>
+        <div>
+            <label for="inmueble">Nº Inmuebles Propios</label>
+            <input id="inmueble" type="number">
+        </div>
+        <div>
+            <label for="valor">Valor de Inmuebles</label>
+            <input id="valor" type="number">
+        </div>
+        <div>
+            <input type="button" value="Monto" onclick="impuesto()">
+        </div>
+        <div>
+            <input type="button" value="Promedio" onclick="promedio()">
+        </div>
+        <div>
+            <label id="mensaje"></label>
+        </div>        
+    </section>
+</body>
+</html>

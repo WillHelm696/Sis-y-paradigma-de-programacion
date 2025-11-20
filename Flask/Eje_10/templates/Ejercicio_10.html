@@ -4,40 +4,20 @@
     <meta charset="UTF-8">
     <title>Ejercicio 7 - Análisis de sangre</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/static/script.js"></script>
+    <script src="/static/logeo.js"></script>
+    <link rel="stylesheet" href="/static/logeo.css">
 </head>
 <body>
-    <h2>Registro de análisis de sangre</h2>
-
-    <label>Nombre y Apellido:</label>
-    <input type="text" id="nombre" /><br><br>
-
-    <label>Tipo de documento:</label>
-    <select id="tipo_doc">
-        <option value="">Seleccione</option>
-        <option value="DNI">DNI</option>
-        <option value="Pasaporte">Pasaporte</option>
-        <option value="Carnet de conducir">Carnet de conducir</option>
-    </select><br><br>
-
-    <label>Colesterol:</label>
-    <input type="number" id="colesterol" /><br><br>
-
-    <label>Glóbulos rojos:</label>
-    <input type="number" id="rojos" /><br><br>
-
-    <label>Glóbulos blancos:</label>
-    <input type="number" id="blancos" /><br><br>
-
-    <label>Glucemia:</label>
-    <input type="number" id="glucemia" /><br><br>
-
-    <label>Triglicéridos:</label>
-    <input type="number" id="trigliceridos" /><br><br>
-
-    <button onclick="enviarAnalisis()">Enviar análisis</button>
-    <br><br>
-
-    <div id="mensaje" style="color:blue; font-weight:bold;"></div>
+    <div class="login">
+    <form>
+        <h1>LOG IN</h1>
+        <label id="user" >username</label>
+        <input type="text">
+        <label id="pasw" >Password</label>   
+        <input type="password">
+        <button onclick="inisiar_secision()" >Submint</button>
+        <label class="msj"></label>   
+    </form>
+</div>
 </body>
 </html>
