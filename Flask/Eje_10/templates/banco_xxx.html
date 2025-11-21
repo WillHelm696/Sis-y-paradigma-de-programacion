@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco_XXX</title>
+        <script src="/static/jquery-1.11.1.min.js"></script>
+    <script src="/static/banco.js"></script>
+    <link rel="stylesheet" href="/static/banco.css">
+</head>
+<body>
+    <div class="bank-container">
+        <h1>Banco XXX</h1>
+        <div class="user-info">
+            <p>Usuario: <strong id="current-user">Cargando...</strong></p>
+            <p>Saldo Actual: <strong id="current-balance">$ 0.00</strong></p>
+            <button type="button" onclick="cerrar_sesion()" class="logout-btn">Cerrar Sesión</button>
+        </div>
+
+        <section class="operations-grid">
+            
+            <!-- Operación: DEPÓSITO -->
+            <div class="operation-card">
+                <h2><img src="static/img/10842175.png" class="icono-op" width="50px" alt="imagen"> <br>Depósito</h2>
+                <div class="form-group">
+                    <input type="number" id="deposito-monto" min="0.01" step="0.01" placeholder="Monto a depositar" required>
+                </div>
+                <button type="button" onclick="realizarDeposito()">Depositar</button>
+            </div>
+
+            <!-- Operación: RETIRO -->
+            <div class="operation-card">
+                <h2> <img src="static/img/6362445.png" class="icono-op" width="50px" alt="imagen retirar"><br> Retiro</h2>
+                <div class="form-group">
+                    <input type="number" id="retiro-monto" min="0.01" step="0.01" placeholder="Monto a retirar" required>
+                </div>
+                <button type="button" onclick="realizarRetiro()">Retirar</button>
+            </div>
+
+            <!-- Operación: TRANSACCIÓN -->
+            <div class="operation-card">
+                <h2><img src="static/img/1770992.png" class="icono-op" width="50px" alt="imagen Transacción"> <br> Transacción</h2>
+                <div class="form-group">
+                    <label for="">Tipo</label>
+                    <select name="Transacción" id="Transacción">
+                        <option value="seleccione">Seleccione</option>
+                        <option value="transacción">Transferencia</option>
+                        <option value="impuestos">Impuestos</option>
+
+                    </select>
+                    <input type="number" id="transaccion-monto" min="0.01" step="0.01" placeholder="Monto a transferir" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="transaccion-destino" placeholder="Cuenta Destino" required>
+                </div>
+                <button type="button" onclick="realizarTransaccion()">Transferir</button>
+            </div>
+
+            <!-- Operación: CONSULTA/MOVIMIENTO -->
+            <div class="operation-card">
+                <h2><img src="static/img/18209503.png" class="icono-op" width="50px" alt="imagen Saldo"> <br>   Movimiento Bancario</h2>
+                <button type="button" onclick="consultarMovimientos()">Consultar</button>
+            </div>
+        
+        </section>
+        <!-- Área de Mensajes -->
+         <div class="mensaje">
+            <h2>Operaciones</h2>
+             <div id="operation-message" class="message-area-bank"></div>
+         </div>
+    </div>
+
+</body>
+</html>
+
+
+

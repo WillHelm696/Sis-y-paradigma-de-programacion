@@ -1,35 +1,44 @@
-function iniciar_sesion(){
-    data={
-        user: document.getElementById("user").value,
-        pasw: document.getElementById("pasw").value
-    }
-    let msj = document.getElementById("mensaje")
-    let rta = ""
+// -----------------------------
+// INICIAR SESIÓN
+// -----------------------------
+function iniciar_sesion() {
+    const data = {
+        user: document.getElementById("user").value.trim(),
+        pasw: document.getElementById("pasw").value.trim()
+    };
 
-    if(data.user.length <= 0 ){
-        rta += "Complte el campo de username <br>"
-    }if (data.pasw.length <= 0){
-        rta += "Complte el campo de password <br>"
-    }if (rta.length <= 0 ){
-        msj.innerHTML= rta
-        return
-    }
-    alert(data.user,data.pasw)
+    const msj = document.getElementById("mensaje");
+    let errores = "";
 
-    $.ajax=({
+    if (data.user === "") {
+        errores += "Complete el campo de usuario<br>";
+    }
+    if (data.pasw === "") {
+        errores += "Complete el campo de contraseña<br>";
+    }
+
+    if (errores.length > 0) {
+        msj.innerHTML = errores;
+        return;
+    }
+
+    $.ajax({
         type: 'POST',
         url: '/login',
-        data: JSON.stringify(datos),
+        data: JSON.stringify(data),
         headers: {
             'Accept': 'application/json',
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         },
-        success : function(respuesta){
-
+        success: function(respuesta) {
+            if (respuesta.success) {
+                window.location.href = "/cargar_banco_xxx";
+            } else {
+                msj.innerHTML = respuesta.message || "Usuario o contraseña incorrectos";
+            }
         },
-        error: function(){
-            alert("HUBO UN ERROR");
+        error: function(error) {
+            msj.innerHTML = "Error al intentar iniciar sesión";
         }
-        
-    })
+    });
 }
