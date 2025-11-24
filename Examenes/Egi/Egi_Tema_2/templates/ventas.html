@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro de Ventas</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/ventas.js"></script>
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+
+    <body>
+        <h2>Registrar Venta</h2>
+
+        Cantidad vendida:
+        <input type="number" id="cantidad" step="0.01"><br><br>
+
+        Precio unitario:
+        <input type="number" id="precio" step="0.01"><br><br>
+
+        <button onclick="registrarVenta()">Registrar Venta</button>
+        <button onclick="obtenerPromedio()">Ver Promedio</button>
+
+        <p id="resultado"></p>
+
+    </body>
+</html>

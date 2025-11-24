@@ -39,17 +39,22 @@ def promedio_nota():
 def veridicar_adultes():
     
     data = request.get_json()
-    fecha_str= data.get("fecha")
+    # aceptar tanto un JSON string ("YYYY-MM-DD") como un objeto {"fecha":"YYYY-MM-DD"}
+    if isinstance(data, str):
+        fecha_str = data
+    else:
+        fecha_str = data.get("fecha")
     
     fecha_nacimiento = datetime.strptime(fecha_str, '%Y-%m-%d').date()
     hoy = date.today()
     
     edad = hoy.year - fecha_nacimiento.year - ((hoy.month, hoy.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
         
+    # corregir mensaje: si edad >= 18 es mayor, si no es menor
     if edad >= 18 :
-        mensaje = "es menor"    
-    else:
         mensaje = "es mayor"
+    else:
+        mensaje = "es menor"
     return jsonify({'mensaje':mensaje})
 
 ######################################################################################################3

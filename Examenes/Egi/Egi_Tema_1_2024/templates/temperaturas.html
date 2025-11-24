@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Temperatura</title>
+    <script src="static/jquery-1.11.1.min.js"></script>
+    <script src="static/script.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <section action="/agregar" method="post" class="temperatura">
+        <h2>Registrar Temperatura</h2>
+        Ingrese<input id="temperatura" type="number">
+
+        <button type="button" onclick="Agregar_temperatura()">Agregar</button><br><br>
+        <button type="button" onclick="Mostrar_promedio()">Promedio</button>
+        <div>
+            <label id="mensaje"></label>
+        </div>
+    </section>
+
+</body>
+</html>

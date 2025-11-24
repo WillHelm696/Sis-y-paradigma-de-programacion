@@ -34,6 +34,12 @@ actividades = {
 }
 
 # ------------------------------
+#   RUTA INICIO
+# ------------------------------
+@app.route('/')
+def inicio():
+    return render_template('Ejercicio_10.html')
+# ------------------------------
 #   DECORADOR PARA PROTEGER RUTAS
 # ------------------------------
 def login_requerido(f):
@@ -43,14 +49,6 @@ def login_requerido(f):
             return redirect(url_for('inicio'))
         return f(*args, **kwargs)
     return wrapper
-
-# ------------------------------
-#   RUTA INICIO
-# ------------------------------
-@app.route('/')
-def inicio():
-    return render_template('Ejercicio_10.html')
-
 # ------------------------------
 #   LOGIN
 # ------------------------------
@@ -63,6 +61,9 @@ def login():
     if user in usuarios and usuarios[user] == pasw:
         session['logueado'] = True
         session['usuario'] = user
+        # Asignar saldo inicial predefinido si es la primera vez
+        if saldos.get(user, 0.0) == 0.0:
+            saldos[user] = 1000.0
         return jsonify({"success": True})
     else:
         return jsonify({"success": False, "message": "Usuario o contraseña incorrectos"})
@@ -81,7 +82,7 @@ def cargar_banco_xxx():
 @app.route('/api/usuario', methods=["GET"])
 def api_usuario():
     if not session.get("logueado"):
-        return jsonify({"error": "No autorizado"}), 401
+        return jsonify({"success":False,"error": "No autorizado"}), 401
 
     usuario = session.get("usuario")
     saldo = saldos.get(usuario, 0.0)
@@ -135,11 +136,29 @@ def retiro():
 @login_requerido
 def transferencia():
     datos = request.get_json()
-    destino = datos["destino"].lower()
+    destino = datos.get("destino", "").lower()
     monto = float(datos["monto"])    
+    tipo = datos.get("tipo", "transaccion").lower()
     origen = session["usuario"]
 
+    # Si es pago de impuestos, usamos una cuenta interna 'impuestos'
+    if tipo == "impuestos":
+        destino = "impuestos"
+        # crear cuenta impuestos si no existe
+        if destino not in saldos:
+            saldos[destino] = 0.0
 
+        if saldos[origen] < monto:
+            return jsonify({"error": "Saldo insuficiente"}), 400
+
+        saldos[origen] -= monto
+        saldos[destino] += monto
+        actividades[origen] = f"usuario : {origen} pago impuestos {monto} <br>" + actividades[origen]
+        actividades[destino] = f"usuario : {origen} pago {monto} (impuestos) <br>" + actividades[destino]
+
+        return jsonify({"mensaje": f"Pago de impuestos realizado -{monto}", "saldo": saldos[origen]})
+
+    # Por defecto: transferencia entre cuentas existentes
     if destino not in saldos:
         return jsonify({"error": "Cuenta destino no existe"}), 400
 

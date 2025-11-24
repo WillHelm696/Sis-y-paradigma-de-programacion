@@ -81,7 +81,7 @@ function calcular(){
 
 
 function verificar() {
-    fecha = datos_completos("2")
+    let fecha = datos_completos("2")
     
     if (!fecha){
         return
@@ -89,7 +89,7 @@ function verificar() {
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:5000/veridicar_edad",
-        data:JSON.stringify(fecha),
+        data: JSON.stringify({fecha: fecha}),
         headers:{
             'Accept':'application/json',
             'Content-Type':'application/json'

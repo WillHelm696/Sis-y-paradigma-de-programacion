@@ -7,6 +7,9 @@ window.onload = function () {
         url: "/api/usuario",
         method: "GET",
         success: function (data) {
+            if (data.success === false ){
+                window.location.href = "/";
+            }            
             document.getElementById("current-user").innerText = data.usuario;
             document.getElementById("current-balance").innerText = "$ " + data.saldo.toFixed(2);
         },
@@ -38,8 +41,10 @@ function realizarDeposito() {
             'Content-Type': 'application/json'
         },
         success: function (respuesta) {
+            if (respuesta.success === false ){
+                window.location.href = "/";
+            }            
             msj.innerHTML = respuesta.mensaje;
-
             // actualizar saldo en pantalla
             document.getElementById("current-balance").innerText =
                 "$ " + respuesta.saldo.toFixed(2);
@@ -72,8 +77,10 @@ function realizarRetiro() {
             'Content-Type': 'application/json'
         },
         success: function (respuesta) {
+            if (respuesta.success === false ){
+                window.location.href = "/";
+            }
             msj.innerHTML = respuesta.mensaje;
-
             document.getElementById("current-balance").innerText =
                 "$ " + respuesta.saldo.toFixed(2);
         },
@@ -88,6 +95,7 @@ function realizarRetiro() {
 // -----------------------------
 function realizarTransaccion() {
     let monto = parseFloat(document.getElementById("transaccion-monto").value);
+    let tipo = document.getElementById("Transacción").value;
     let destino = document.getElementById("transaccion-destino").value.trim();
     let msj = document.getElementById("operation-message");
 
@@ -95,17 +103,24 @@ function realizarTransaccion() {
         msj.innerHTML = "Monto no válido";
         return;
     }
-
-    if (destino === "") {
-        msj.innerHTML = "Debe ingresar una cuenta destino";
+    if (tipo === "seleccione") {
+        msj.innerHTML = "Debe seleccionar el tipo de transacción";
         return;
     }
-
+    // Si el usuario eligió 'impuestos', no es necesario ingresar destino
+    if (tipo === "impuestos") {
+        destino = "impuestos";
+    } else {
+        if (destino === "") {
+            msj.innerHTML = "Debe ingresar una cuenta destino";
+            return;
+        }
+    }
     let data = {
         monto: monto,
-        destino: destino
+        destino: destino,
+        tipo: tipo
     };
-
     $.ajax({
         type: 'POST',
         url: '/transaccion',
@@ -115,6 +130,9 @@ function realizarTransaccion() {
             'Content-Type': 'application/json'
         },
         success: function (respuesta) {
+            if (respuesta.success === false ){
+                window.location.href = "/";
+            }
             msj.innerHTML = respuesta.mensaje;
             document.getElementById("current-balance").innerText = "$ " + respuesta.saldo.toFixed(2);
         },
@@ -133,6 +151,9 @@ function consultarMovimientos() {
         url: "/movimientos",
         method: "POST",
         success: function (respuesta) {
+            if (success ===false ){
+                window.location.href = "/";
+            }            
             msj.innerHTML = respuesta.mensaje;
         },
         error: function () {
